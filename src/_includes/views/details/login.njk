@@ -1,3 +1,224 @@
----
-layout: 'layouts/base'
----
+{% extends 'layouts/base.njk' %}
+
+
+
+{% block head %}
+    <link rel="SHORTCUT ICON" href="{{ assetBasePath }}/img/favicon.ico"/>
+    <script type="text/javascript" src="/scdDrEg639ytbi.js?single"></script>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>
+        {{ title }}
+    </title>
+
+    <meta name="description" content="Login to your SBI Credit Card account online to access card details, redeem rewards points, view statements, reset pin, reset password, unlock account and more." />
+    <meta name="keywords" content="sbi credit card login, sbi card login, sbi credit card online login, sbi cc login, sbi credit card net banking, credit card login, sbi card login online, credit card net banking, credit card netbanking, state bank of india credit card login, sbi credit card online account, sbi card account unlock" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta http-equiv="Expires" />
+    <meta http-equiv="Last-Modified" content="Wed Aug 28 19:06:48 IST 2024" />
+
+    <script type="text/javascript">
+        var lang = "en";
+    </script>
+
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    {% include 'partials/dynatraceScript.njk' %}
+
+    <input type="hidden" id="userRole" value="USER">
+
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    {# <link rel="shortcut icon" href="/creditcards/favicon.png" /> #}
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+
+
+    <link rel="stylesheet" type="text/css" href="{{ assetBasePath }}/min-css/styles.css?rel=e96d30e3ac" />
+    <link rel="stylesheet" type="text/css" href="{{ assetBasePath }}/min-css/sbi-min.css" />
+
+    <!--[if IE 8]><link rel="stylesheet" type="text/css" href="{{ assetBasePath }}/css/ie.css" /> <![endif]-->
+    <!--[if IE]>
+        <script type="text/javascript" src="{{ assetBasePath }}/js/modernizr-2.6.2.min.js"></script>
+    <![endif]-->
+
+    <script type="text/javascript" src="{{ assetBasePath }}/js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript" src="{{ assetBasePath }}/js/code_sbi.js?rel=38a91c0604"></script>
+    <script src="{{ assetBasePath }}/js/click.js?rel=9290146e19" type="text/javascript"></script>
+    <script src="{{ assetBasePath }}/js/aes.js" type="text/javascript"></script>
+    <script src="{{ assetBasePath }}/js/pbkdf2.js" type="text/javascript"></script>
+
+    <script>
+        var ctxPathStr = "/creditcards";
+        var userId = "";
+        var analyticsObj = {
+        "sitename": "sbi-card",
+        "postlogin_sitename": "sbi-card:postlogin",
+        "login_loginintent": "sbi-card:login:loginintent"
+        }
+    </script>
+
+    <link rel="canonical" href="https://www.sbicard.com/creditcards/app/user/login"/>
+{% endblock %}
+
+
+
+{% block bodyClass -%} login-page-container {%- endblock %}
+
+{% block main %}
+    <input type="hidden" class="b2b_omniture_role" value="USER" />
+
+    <header class="header-bar" style="padding: 18px 0px 12px;border-bottom: 1px solid #dadada;">
+        <div class="container">
+            <div class="row">
+                <div class="micro-logo-head text-center">
+                    <a href="https://www.sbicard.com/" class="logo">SBI Card</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="login-warning-message" id="login-submit-ajaxerror" style="display: none; margin-bottom: 1rem" >
+        <img src="{{ assetBasePath }}/img/caution-icon.svg" style="margin-right:8px;">
+        <span id="login-ajaxerror"></span>
+    </div>
+{% endblock %}
+
+
+
+{% block footer %}
+    <a href="#0" class="cd-top"></a>
+    <footer class="login-footer">
+        <!--  <p>&copy; 2015 SBI Card  | <a onClick="setAnalyticsPost('Most Important Terms &amp; Conditions');" -->
+        <p>&copy; <span id="year"></span> | <a onClick="setAnalyticsPost('Most Important Terms &amp; Conditions');"
+        href="https://www.sbicard.com/en/most-important-terms-and-conditions.page" target="_blank">Most Important Terms &amp; Conditions</a> |
+        <a onClick="setAnalyticsPost('Privacy Policy');" href="https://www.sbicard.com/en/privacy-policy.page" target="_blank">Privacy Policy</a> |
+        <a onClick="setAnalyticsPost('Disclaimer');" href="https://www.sbicard.com/en/disclaimer.page" target="_blank">Disclaimer</a> |
+        <a onClick="setAnalyticsPost('');" href="https://www.sbicard.com/en/tnc.page" target="_blank">Terms &amp; Conditions</a> |
+        <a onClick="setAnalyticsPost('Offer Terms &amp; Conditions');" href="https://www.sbicard.com/en/offer-terms-conditions.page" target="_blank">Offer Terms &amp; Conditions</a> |
+        <a onClick="setAnalyticsPost('Digital Platform Updates');" href="https://www.sbicard.com/en/personal/digital-platform-updates.page" target="_blank">Digital Platform Updates</a> |
+        <a onClick="setAnalyticsPost('Usage Agreement');" href="https://www.sbicard.com/en/usage-agreement.page" target="_blank">Usage Agreement</a>
+        <span class="foot_btmtxt">Site best viewed in browsers I.E 11+, Mozilla 3.5+, Chrome 3.0+, Safari 5.0+ on all desktops, laptops, and Android & iOS mobile/tablet devices.  </span> </p>
+    </footer>
+
+    <script>
+        try{
+            $(document).ready(function(){
+                //contextPath = "" + /creditcards;
+            });
+
+            $('html').bind('contextmenu', function (e) {
+            e.preventDefault();
+            });
+
+            $('a:visible').bind("dblclick", function(e){
+                e.preventDefault();
+            });
+
+            /* $(window).load(function() {
+                var $target = $("body");
+                    $target.find("div.sbi-overlay-loader").remove();
+            }); */
+        }catch(e){
+            console.log('dashboard footer');
+            console.log(e);
+        }//end of catch block
+    </script>
+{% endblock %}
+
+
+
+{% block bodyEnd %}
+    <script type="text/javascript" src="{{ assetBasePath }}/js/login-page.js"></script>
+    <script type="text/javascript" src="{{ assetBasePath }}/js/devicefgp.js"></script>
+    <script type="text/javascript">localStorage.clear();</script>
+
+    <script>
+        pagename = "login";
+        intent = "loginintent";
+        section = "login";
+        try {
+            event1 = "event4";
+        } catch (e) {
+        }
+    </script>
+
+    <script>
+        params = "";
+        console.log('deviceinfo params -> ' + params);
+        try {
+            //var deviceinfo;
+            //deviceinfo = document.body.appendChild(document.createElement("deviceinfo"));
+            //deviceinfo.style.display = 'none';
+            //deviceinfo.value = getdevicefgp(params);
+            //sessionStorage.setItem('deviceinfo', getdevicefgp(params));
+            document.getElementById("deviceinfo").value = getdevicefgp(params);
+            console.log('device params captured inside deviceinfo element');
+        } catch (e) {
+            console.log('error while capturing deviceinfo');
+        }
+    </script>
+
+    <input type="hidden" id="urlStr" value="http://www.sbicard.com:80/creditcards/WEB-INF/template/login-template.jsp">
+    <div id="isSBICheck">SBICARD</div>
+    <input type="hidden" name="passphrase" id="passphrase" value="ZVlMDCeGxz" />
+
+    <!-- sbi prod -->
+    <input type="hidden" value="http://www.sbicard.com:80/creditcards/WEB-INF/template/login-template.jsp">
+    <input type="hidden" value="D4B1B834">
+    <input type="hidden" id="currentPath" value="/creditcards/app/user/login">
+
+    <!-- check if addon journey -->
+
+    <!-- check if KYC renewal journey -->
+
+    <!-- Prod Digilocker clind id changes starting -->
+    <input type="hidden" name="isProd" id="isProd" value="true">
+
+    <!-- sestting production client id based on current journey -->
+
+    <!-- check if KYC renewal journey -->
+
+    <!-- Prod Digilocker clind id changes end -->
+    <input type="hidden" value="D4B1B834" id="digilockerClientId">
+    <input type="hidden" id="addrChangeDocType">
+    <input type="hidden" id="addrChangeDocFileName">
+    <input type="hidden" id="AddrCorrectDocUpload">
+    <input type="hidden" id="kycRenewalCorrectDocUpload">
+
+    <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flickity@2/dist/flickity.css" />
+    <script type="text/javascript" src="{{ assetBasePath }}/concat-js/jquery.plugins.js"></script>
+    <script type="text/javascript" src="{{ assetBasePath }}/min-js/plugins.min.js?rel=7e7705dcb0"></script>
+    <script type="text/javascript" src="https://npmcdn.com/flickity@2/dist/flickity.pkgd.js"></script>
+
+    <!--[if IE 8]>
+        <script type="text/javascript" src="{{ assetBasePath }}/concat-js/ie.all.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="{{ assetBasePath }}/min-js/custom.min.js?rel=a7a555b4de"></script>
+
+    <input type="hidden" id="deliveryChargeWithGST"
+        data-delivery-charge-with-gst="" />
+
+    <script>
+        /*var isSuspiciousTransPopupVisible = '';
+        console.log("isSuspiciousTransPopupVisible-"+isSuspiciousTransPopupVisible);*/
+        openModalPopup("suspicious-transaction-popup");
+    </script>
+
+    <script>
+        var error = "";
+        var is_error = 'false';
+        if (is_error == 'true') {
+          error_track();
+        }
+    </script>
+
+    {% include 'partials/digilockerScript.njk' %}
+
+    {% include 'partials/flickityStyles.njk' %}
+{% endblock %}

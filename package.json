@@ -3,7 +3,8 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "start": "npm-run-all --parallel watch:*",
+        "start": "npm run watch:eleventy",
+        "start:old": "npm-run-all --parallel watch:*",
         "styles": "postcss src/assets/css/main.css --output build/assets/css/styles.css",
         "deploy": "npx @11ty/eleventy",
         "watch:styles": "postcss src/assets/css/main.css --output build/assets/css/styles.css --watch",

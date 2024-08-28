@@ -1,0 +1,208 @@
+
+.mobile-search,
+.page-tab-mobile,
+.menu-trigger,
+.nav-trigger,
+.hide-desktop,
+.mobile-only {
+	display: none;
+}
+
+.global-nav ul li nav.fat-nav {
+	padding: 0;
+}
+.global-nav ul li:hover nav.fat-nav {
+	padding: 20px;
+}
+
+.global-nav ul li nav.fat-nav .column {
+	width: 30%;
+}
+.quick-nav-wrapper a.nav-trigger,
+.page-tab-mobile,
+.menu-trigger,
+.mobile-search {
+	display: none;
+}
+
+.quick-nav {
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#9c000000', endColorstr='#9c000000');
+}
+
+.home-header {
+margin-top: 98px;
+}
+
+.flex-boxes.save-more .flex-boxes-container .box {
+	height: 344px;
+}
+
+.cards-data .col-2 .flip-board .back {
+	display: none;
+}
+
+.cards-data .col-2:hover .flip-board .back {
+	display: block;
+}
+
+.cards-data .col-2:hover .flip-board .front {
+	display: none;
+}
+
+
+.cta-style-1 .flex-boxes-container .box figure {
+	border: none;
+	background: url(../img/ie-sprite.png) no-repeat;
+	width: 110px;
+	height: 110px;
+}
+
+
+.cta-style-1 .flex-boxes-container .box:hover figure {
+	background-position: -200px 0
+}
+
+.fancy-checkbox input,
+.fancy-radio input {
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	width: 1px;
+	height: 1px;
+}
+
+.fancy-radio span {
+	margin-bottom: -3px;
+}
+
+.fancy-checkbox.checked span{
+	background: #0095d9 url('../img/sprite.png') no-repeat;
+	background-position: 3px -823px;
+	border-color: #0095d9;
+}
+.fancy-radio.checked span {
+	border: solid 6px #0095d9;
+	width: 6px;
+	height: 6px;
+}
+
+.slider .slick-slide .slide-wrapper {
+	width: 960px;
+	position: absolute;
+	margin-left: -480px;
+	z-index: 30;
+}
+
+.slider .slick-slide {
+	position: relative;
+}
+
+.help-links .flex-boxes-container div.last{
+	border: none;
+}
+.help-links .content-box{
+	display: inline-block;
+	width: 100%;
+}
+.videos-container .video-wrap em{
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	width: 1px;
+	height: 1px;
+}
+.videos-container .video-wrap .play-icon{
+	background: url("../img/sprite.png") no-repeat -250px -650px;
+}
+
+.select-preference ul li.last {
+	border: none;
+}
+
+.expense-income-simplyfiers .simplifyer-wrap .right ul li.last {
+	width: 13%;
+	position: absolute;
+	font-size: 18px;
+	right: 15px;
+	top: 25%;
+}
+
+.ui-slider-vertical div.tooltip.top.slider-tip:after,
+.main-card-info:before {
+	background-color: transparent;
+	border: none;
+}
+
+.legal-links .grid-outer .nav li:after{
+	content: "|";
+	margin-left: 8px;
+	color: #555;
+}
+.legal-links .grid-outer .nav li.last:after {
+	content: "";
+}
+.footer .nav.primary li a.last{
+	border: none;
+}
+.flex-boxes .button.primary{
+	letter-spacing: 0.1px;
+}
+.tab-inner-content ul li.last{
+	border: none;
+}
+.slick-dots li button{
+	background: #333;
+}
+
+.global-nav ul.main-menu > li > a {
+	padding: 0 19px
+}
+
+.login-block p {
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.book-bt .box-3.last{
+	border: none;
+}
+.book-bt .box-3.last:after{
+	background: none;
+}
+
+html.desktop .global-nav ul.main-menu > li.last-menu-item a {
+	border-right: none;
+	padding: 0 21px;
+}
+.data-summary li.last {
+    border-right: medium none;
+    margin-right: 0;
+    padding-right: 0;
+}
+
+.dnd-page label.label-style-2{
+    width: 235px;
+}
+
+.login-page .datepicker input#dob,
+.my-account .datepicker input{
+	display: block;
+}
+
+.login-page .form-field-list li .field-wrap label[for="dob"].valid,
+.login-page .form-field-list li .field-wrap label[for="dob"].error{
+	left:200px;
+}
+
+.transaction-form .form-field-list li .field-wrap{
+	margin-right: 2px;
+}
+
+.my-account .transaction-form ul.form-field-list li{
+	width: 49%;
+}
+.browser-test-popup{
+	opacity:0.7;
+	background: rgb(0,0,0);
+	filter: alpha(opacity=70);
+}
+
+.open.browser-test-popup{
+	z-index: auto;
+}

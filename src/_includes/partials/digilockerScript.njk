@@ -1,0 +1,334 @@
+<script>
+    function redirectToDigilocker(url) {
+        sessionStorage.removeItem('digiContactChangeLoader');
+        var clientId = $("#digilockerClientId").val();
+        console.log("clientId", clientId);
+        // var url =
+        // "https://api.digitallocker.gov.in/public/oauth2/1/authorize?response_type=code&client_id=6C83C5C1&rediect_uri=1&state=1"
+        // ;
+        var url = "https://api.digitallocker.gov.in/public/oauth2/1/authorize?response_ty" +
+                "pe=code&client_id=" + clientId + "&rediect_uri=1&state=1";
+        console.log('URL => ', url);
+        var loaderHtml = '<div class="overlay-loader"></div>';
+        $("body").append(loaderHtml);
+        const win = window.open(
+            url, "_blank", "width=600,height=500,left=400,top=100,toolbar=0,status=0"
+        );
+        window.addEventListener("message", receiveMessage, !1);
+        window.childwindow = win;
+        const interval = setInterval(() => {
+            if (win.closed) {
+                clearInterval(interval);
+                if (sessionStorage.getItem('digiContactChangeLoader') == null) {
+                    $("body").find("div.overlay-loader").remove();
+                }
+            }
+        }, 100);
+    }
+    const genericError = {
+        "digiCode": "",
+        "resState": "",
+        "accessCode": "",
+        "error": "consent_required",
+        "errorDesc": "The user denied access to your application"
+    }
+    const queryString = window.location.search;
+    if (window.opener) { // ref = document.referrer;
+        ref = window.location.href;
+        console.log('ref executed ', ref)
+        if (
+            (window
+            .location
+            .href
+            .indexOf("digi") > -1) ||
+            (window
+            .location
+            .href
+            .indexOf("creditcards") > -1) ||
+            (window
+            .location
+            .href
+            .indexOf("9090") > -1)
+        ) { // if (ref.indexOf("9090") > 0) {
+            try {
+                console
+                    .log('try block')
+                    window
+                    .opener
+                    .postMessage(queryString, window
+                        .opener
+                        .document
+                        .location
+                        .href);
+            } catch (error) {
+                console.log('catch block')
+                alert(error)
+            }
+            setTimeout(() => {
+                window.close();
+            }, 100);
+        }
+    }
+    receiveMessage = () => {
+        const urlParams = new URLSearchParams(event.data);
+        const code = urlParams.get("code");
+        const digiState = urlParams.get("state");
+        const hmac = urlParams.get("hmac");
+        const err = urlParams.get("error");
+        const errDesc = urlParams.get("error_description");
+        let response = {
+            digiCode: "",
+            resState: "",
+            accessCode: "",
+            error: "",
+            errorDesc: ""
+        };
+        if (code && digiState && hmac) {
+            response = {
+                ... response,
+                digiCode: code,
+                resState: digiState,
+                accessCode: hmac
+            };
+            sessionStorage.setItem('kycDigiLockerAuthCode', code);
+            if ($('#addonJourney').val() == "true") {
+                submitAddonWithDigilocker(response);
+            }
+            if (
+                sessionStorage.getItem('addressChangetryAgainStatus') == true ||
+                sessionStorage.getItem('addressChangetryAgainStatus') == 'true' ||
+                sessionStorage.getItem('addressChangetryAgainStatus') == "true"
+            ) {
+                retryStatusServiceCallForTryAgain();
+            } else if (sessionStorage.getItem('addressChange') != null && (
+                sessionStorage.getItem('addressChange') == true ||
+                sessionStorage.getItem('addressChange') == 'true' ||
+                sessionStorage.getItem('addressChange') == "true"
+            )) {
+                digiAddressChangeKyc(response);
+            } else if (sessionStorage.getItem('addOnTryAgainStatus') === "true") {
+                replayOrderAddon();
+            } else if (
+                sessionStorage.getItem('renewalTryAgainStatus') == true ||
+                sessionStorage.getItem('renewalTryAgainStatus') == 'true' ||
+                sessionStorage.getItem('renewalTryAgainStatus') == "true"
+            ) { // alert("asdasdasdasd");
+                replayOrderRenewal();
+            } else if (sessionStorage.getItem('kycRenewel') != null && (
+                sessionStorage.getItem('kycRenewel') == true ||
+                sessionStorage.getItem('kycRenewel') == 'true' ||
+                sessionStorage.getItem('kycRenewel') == "true"
+            )) {
+                console.log("inside kyc renewel")
+                kycRenewelDigiAddressChangeKyc(response);
+            } else {
+                digiContactUpdateKyc(response);
+            }
+        } else if (err !== "" && errDesc !== "") {
+            response = {
+                ... response,
+                error: err,
+                errorDesc: errDesc
+            };
+            $("body").find("div.overlay-loader").remove();
+        }
+        console.log(response);
+        sessionStorage.setItem('digiContactChangeLoader', true);
+    }
+    document.addEventListener('load', function () {
+        receiveMessage = () => {
+            console.log(event.data);
+        }
+    });
+    function digiContactUpdateKyc(response) {
+        $('#contact-update-form-retail #digiCode').val(response.digiCode);
+        sessionStorage.setItem('kycDigiLockerAuthCode', response.digiCode);
+        $('#contact-update-form-retail #resState').val(response.resState);
+        $('#contact-update-form-retail #accessCode').val(response.accessCode);
+        $('#contact-update-form-retail #digiError').val(response.error);
+        $('#contact-update-form-retail #errorDesc').val(response.errorDesc);
+        var digiContactUpdateForm = $('#contact-update-form-retail');
+        digiContactUpdateForm.removeAttr("action");
+        digiContactUpdateForm.attr(
+            "action", "/creditcards/app/myprofile/digilocker-contact-change-submission"
+        );
+        digiContactUpdateForm.submit();
+        // sessionStorage.removeItem('tryAgainStatus');
+    }
+    function digiAddressChangeKyc(response) {
+        $('#change-address-form #digiCode').val(response.digiCode);
+        // $('#change-address-form
+        // #digiCode').val("3e5e8b30f7f2b1327f93fa6302c00ae95addb9c5");
+        $('#change-address-form #resState').val(response.resState);
+        $('#change-address-form #accessCode').val(response.accessCode);
+        $('#change-address-form #digiError').val(response.error);
+        $('#change-address-form #errorDesc').val(response.errorDesc);
+        var changeAddressForm = $('#change-address-form');
+        changeAddressForm.removeAttr("action");
+        changeAddressForm.attr("action", "/creditcards/app/myprofile/digilocker-load-address");
+        /* var loaderHtml = '<div class="overlay-loader"></div>';
+   $("body").append(loaderHtml); */
+        changeAddressForm.submit();
+        sessionStorage.removeItem('digiContactChangeLoader');
+    }
+    function retryStatusServiceCallForTryAgain() {
+        console.log("retry status call from through status code try again....")
+        var retryStatus = $("#RetryStatus").val();
+        var retryItemID = null,
+            retryItemKey = null,
+            retryItemSeq = null,
+            retryOrderId = null,
+            authCode = null;
+        var submissionResponse = $("#submissionResponseForm").val();
+        var emailSrNumber = $("#EmailSrNumber").val();
+        var mobileSrNumber = $("#MobileSrNumber").val();
+        var isMobileJourney = $("#isMobileJourney").val();
+        var isEmailJourney = $("#isEmailJourney").val();
+        var srNumber = $("#srNumberForm").val();
+        if (retryStatus == "Retry with DL") {
+            authCode = sessionStorage.getItem('kycDigiLockerAuthCode');
+            $('#proceed_to_digilocker #digiRetryCodeForm').val(authCode);
+            // $('#proceed_to_digilocker
+            // #digiRetryCodeForm').val("3e5e8b30f7f2b1327f93fa6302c00ae95addb9c5")
+            // ;
+        }
+    }
+    // KYC Renewal
+    function kycRenewelDigiAddressChangeKyc(response) {
+        var selectedCardNumber = sessionStorage.getItem('selectedCardNumber'); // 0004726426859363055;//
+        var selectedCardName = sessionStorage.getItem('selectedCardName'); //
+        console.log("selectedCardName", selectedCardName)
+        var addOnResideWithPrimary = sessionStorage.getItem('addOnResideWithPrimary'); // "N";//
+        var docRefId = sessionStorage.getItem('kycRenewalDocRefId');
+        // var kycRenewalDocFileExt = ".png";//".jpg"
+        var kycRenewalDocFileExt = sessionStorage.getItem('kycRenewalDocFileExt');
+        //
+        $('#kycRenewelDigiAddressSubmissionform #digiCode').val(response.digiCode);
+        $('#kycRenewelDigiAddressSubmissionform #resState').val(response.resState);
+        $('#kycRenewelDigiAddressSubmissionform #accessCode').val(response.accessCode);
+        $('#kycRenewelDigiAddressSubmissionform #digiError').val(response.error);
+        $('#kycRenewelDigiAddressSubmissionform #errorDesc').val(response.errorDesc);
+        $('#kycRenewelDigiAddressSubmissionform #encryptedCardnumber').val(selectedCardNumber);
+        $('#kycRenewelDigiAddressSubmissionform #addOnResideWithPrimary').val(addOnResideWithPrimary);
+        // $('#kycRenewelDigiAddressSubmissionform
+        // #docRefId').val("dTBlZGZRT2c3L3lvZ0lodzhaMnVOdz09dVpCaURqN0NRcUJOWDJLWEk0em9RQT09MzRQVTB1QnN0RkFBOGZFVU51d1I2TldEQVJJSzVlRWNKTmVjbDc4djJxUT0=")
+        // ;
+        $('#kycRenewelDigiAddressSubmissionform #docRefId').val(docRefId);
+        $('#kycRenewelDigiAddressSubmissionform #kycRencustomerName').val(selectedCardName);
+        $('#kycRenewelDigiAddressSubmissionform #fileExtension').val(kycRenewalDocFileExt);
+        var kycRenewelDigiAddressSubmissionform = $('#kycRenewelDigiAddressSubmissionform');
+        kycRenewelDigiAddressSubmissionform.removeAttr("action");
+        var isModifyJourney = sessionStorage.getItem('isKycRenewalModifyJourney');
+        $(
+            '#kycRenewelDigiAddressSubmissionform #submissionKycRenewalDigiModifyJo' +
+            'urney'
+        ).val(isModifyJourney);
+        console.log("On digi submission isModifyJourney", isModifyJourney);
+        var loaderHtml = '<div class="overlay-loader"></div>';
+        $("body").append(loaderHtml);
+        if (
+            isModifyJourney == true ||
+            isModifyJourney === true ||
+            isModifyJourney == 'true' ||
+            isModifyJourney === "true"
+        ) {
+            kycRenewelDigiAddressSubmissionform.attr("action", "/creditcards/app/requests/digilocker-load-kyc-renewal");
+        } else {
+            kycRenewelDigiAddressSubmissionform.attr(
+                "action", "/creditcards/app/requests/kyc_renewal_digilocker_submission"
+            );
+        } kycRenewelDigiAddressSubmissionform.submit();
+    }
+    function kycRenewelRetryStatusServiceCallForTryAgain() {
+        console.log("kycRenewelRetryStatusServiceCallForTryAgain....")
+        var retryStatus = $("#kycRenewelRetryStatus").val();
+        var authCode = null;
+        var url = "/creditcards/app/myprofile/load-address-retry-status";
+        if (retryStatus == "Retry with DL") {
+            authCode = sessionStorage.getItem('kycDigiLockerAuthCode');
+            $('#kycRenewelRetryform #digiRetryCodeForm').val(authCode);
+        }
+        var kycRenewelRetryform = $('#kycRenewelRetryform');
+        kycRenewelRetryform.removeAttr("action");
+        kycRenewelRetryform.attr("action", "/creditcards/app/myprofile/digilocker-load-address");
+        kycRenewelRetryform.submit();
+    }
+</script>
+<script>
+    if (
+        $("#retryItemID").val() != "" &&
+        $("#retryItemID").val() != null
+    ) {
+        retryItemID = $("#retryItemID").val();
+    } else {
+        retryItemID = sessionStorage.getItem('retryItemIDForm');
+    }
+    if (
+        $("#retryItemKey").val() != "" &&
+        $("#retryItemKey").val() != null
+    ) {
+        retryItemKey = $("#retryItemKey").val();
+    } else {
+        retryItemKey = sessionStorage.getItem('retryItemKeyForm');
+    }
+    if (
+        $("#retryItemSeq").val() != "" &&
+        $("#retryItemSeq").val() != null
+    ) {
+        retryItemSeq = $("#retryItemSeq").val();
+    } else {
+        retryItemSeq = sessionStorage.getItem('retryItemSeqForm');
+    }
+    if (
+        $("#retryOrderId").val() != "" &&
+        $("#retryOrderId").val() != null
+    ) {
+        retryOrderId = $("#retryOrderId").val();
+    } else {
+        retryOrderId = sessionStorage.getItem('retryOrderIdForm');
+    }
+    if (
+        $("#srNumberForm").val() != "" &&
+        $("#srNumberForm").val() != null
+    ) {
+        srNumber = $("#srNumberForm").val();
+    } else {
+        srNumber = sessionStorage.getItem('srNumberForm');
+    }
+    $('#proceed_to_digilocker #submissionResponse').val(submissionResponse);
+    $('#proceed_to_digilocker #retryOrderIdForm').val(retryOrderId);
+    $('#proceed_to_digilocker #retryItemIDForm').val(retryItemID);
+    $('#proceed_to_digilocker #retryItemKeyForm').val(retryItemKey);
+    $('#proceed_to_digilocker #retryItemSeqForm').val(retryItemSeq);
+    $('#proceed_to_digilocker #digiRetryCodeForm').val(authCode);
+    $('#proceed_to_digilocker #emailSrNumberForm').val(emailSrNumber);
+    $('#proceed_to_digilocker #mobileSrNumberForm').val(mobileSrNumber);
+    $('#proceed_to_digilocker #isMobileJourneyForm').val(isMobileJourney);
+    $('#proceed_to_digilocker #isEmailJourneyForm').val(isEmailJourney);
+    $('#proceed_to_digilocker #srNumberForm').val(srNumber);
+    var digiContactUpdateForm1 = $('#proceed_to_digilocker');
+    digiContactUpdateForm1.removeAttr("action");
+    digiContactUpdateForm1.attr("action", "/creditcards/app/myprofile/retry-status");
+    // Loader added when user click on retry button
+    var loaderHtml = '<div class="overlay-loader"></div>';
+    $("body").append(loaderHtml);
+    digiContactUpdateForm1.submit();
+</script>
+<script>
+    function kycRenewelRetryStatusServiceCallForTryAgain() {
+        console.log("kycRenewelRetryStatusServiceCallForTryAgain....")
+        var retryStatus = $("#kycRenewelRetryStatus").val();
+        var authCode = null;
+        var url = "/creditcards/app/myprofile/load-address-retry-status";
+        if (retryStatus == "Retry with DL") {
+            authCode = sessionStorage.getItem('kycDigiLockerAuthCode');
+            $('#kycRenewelRetryform #digiRetryCodeForm').val(authCode);
+        }
+        var kycRenewelRetryform = $('#kycRenewelRetryform');
+        kycRenewelRetryform.removeAttr("action");
+        kycRenewelRetryform.attr("action", "/creditcards/app/myprofile/digilocker-load-address");
+        kycRenewelRetryform.submit();
+    }
+    // sessionStorage.removeItem('tryAgainStatus'); }
+</script>
+<!-- /**Digi locker code end**/ -->
