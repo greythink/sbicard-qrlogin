@@ -9,13 +9,15 @@
     "author": "",
     "license": "ISC",
     "description": "",
-    "dependencies": {
+    "browserslist": [
+        "cover 99.5%"
+    ],
+    "devDependencies": {
         "@11ty/eleventy": "^2.0.1",
         "autoprefixer": "^10.4.20",
         "postcss": "^8.4.41",
-        "postcss-cli": "^11.0.0"
-    },
-    "browserslist": [
-        "cover 99.5%"
-    ]
+        "postcss-cli": "^11.0.0",
+        "postcss-import": "^16.1.0",
+        "postcss-nested": "^6.2.0"
+    }
 }
