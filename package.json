@@ -3,7 +3,11 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "npm-run-all --parallel watch:*",
+        "styles": "postcss src/assets/css/main.css --output build/assets/css/styles.css",
+        "deploy": "npx @11ty/eleventy",
+        "watch:styles": "postcss src/assets/css/main.css --output build/assets/css/styles.css --watch",
+        "watch:eleventy": "eleventy --serve"
     },
     "keywords": [],
     "author": "",
@@ -15,6 +19,7 @@
     "devDependencies": {
         "@11ty/eleventy": "^2.0.1",
         "autoprefixer": "^10.4.20",
+        "npm-run-all": "^4.1.5",
         "postcss": "^8.4.41",
         "postcss-cli": "^11.0.0",
         "postcss-import": "^16.1.0",
