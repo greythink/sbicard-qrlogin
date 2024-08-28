@@ -11,6 +11,7 @@ module.exports = function (config) {
     config.addPassthroughCopy({ 'src/assets/favicon': assetBasePath + '/img' });
     config.addPassthroughCopy({ 'src/assets/logo': assetBasePath + '/img' });
     config.addPassthroughCopy({ 'src/assets/icons': assetBasePath + '/img' });
+    config.addPassthroughCopy({ 'src/assets/media': assetBasePath + '/img' });
     config.addPassthroughCopy({ 'src/assets/css': assetBasePath + '/css' });
     config.addPassthroughCopy({ 'src/assets/min-css': assetBasePath + '/min-css' });
     config.addPassthroughCopy({ 'src/assets/js': assetBasePath + '/js' });
