@@ -2,6 +2,13 @@
 .login-functional {
     max-width: 479px !important;
 }
+/* QR Code login tab heading */
+@media (max-width: 768px) {
+#selectQrCodeSection {
+        display: none !important
+}
+    }
+/* QR Code login tab body */
 #qrcode-login {
     -webkit-box-sizing: border-box;
        -moz-box-sizing: border-box;
@@ -62,3 +69,8 @@
                     box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
             border-radius: 12px;
         }
+@media (max-width: 768px) {
+#qrcode-login {
+        display: none !important
+}
+    }
