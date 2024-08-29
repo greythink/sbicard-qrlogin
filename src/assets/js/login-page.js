@@ -2381,8 +2381,6 @@ $(document).ready(function () {
     }
     loginStrategyInit();
 
-    }
-
     $('#mobile-login #pin').focus(function () {
         validateImageCheckboxcheckedOrNot('mobilelogin');
     });
