@@ -1,0 +1,821 @@
+<section class="login-section gap1 section-container">
+    <input type="hidden" value="" id="card-number-1"/>
+    <input type="hidden" value="" id="card-number-2"/>
+    <input type="hidden" value="" id="card-number-3"/>
+    <input type="hidden" value="" id="card-number-4"/>
+    <input
+        type="hidden"
+        name="loginStrategy"
+        id="loginStrategy"
+        value="LOGIN_STRATEGY_MOBILE_AND_OTP"/>
+    <input
+        type="hidden"
+        name="fetch_mobNumber"
+        id="fetch_mobNumber"
+        value=""/>
+    <input
+        type="hidden"
+        name="fetch_primaryCardNumber"
+        id="fetch_primaryCardNumber"
+        value=""/>
+    <input
+        type="hidden"
+        name="fetch-cardNumber"
+        id="fetch-cardNumber"
+        value=""/>
+    <input
+        type="hidden"
+        name="fetch-card-dob"
+        id="fetch-card-dob"
+        value=""/>
+    <input type="hidden" name="status_code" id="status_code" value=""/>
+    <input
+        type="hidden"
+        name="password_received"
+        id="password_received"
+        value=""/>
+    <input
+        type="hidden"
+        name="captcha-onload"
+        id="captchaSrcOnload"
+        value="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"/>
+    <input type="hidden" id="mobileloginCaptchaFlag" value=""/>
+    <input type="hidden" id="userloginCaptchaFlag" value=""/>
+    <input type="hidden" id="cardloginCaptchaFlag" value=""/>
+    <input type="hidden" id="loginPaynetJourneyFlag" value="false"/>
+    <input type="hidden" id="payneSbiCardFAQFlag" value="true"/>
+
+
+
+    {# Login forms #}
+    <form
+        id="login-page"
+        name="login-page"
+        style="margin-bottom:0px!important;"
+        action="/creditcards/validateLogin"
+        method="post"
+        autocomplete="off">
+        <input
+            type="hidden"
+            name="passphrase"
+            id="passphrase"
+            value="LkXNYyuxQL"/>
+        <input type="hidden" name="prePassphase" id="prePassphase" value=""/>
+        <input type='hidden' name='attemptOver' id="attemptOver" value=""/>
+        <input type="hidden" name="deviceinfo" id="deviceinfo"/>
+        <input type='hidden' name='synchronizerToken' value='null'/>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="divide-form order-second">
+                    <div class="login-view">
+                        <h1>Welcome to SBI Card Online</h1>
+                        <p>Login to access your SBI Card account</p>
+                    </div>
+
+                    {# Login options' container #}
+                    <div class="login-functional m-auto">
+                        <ul class="login-tabs">
+                            <li
+                                id="selectMobileSection"
+                                onclick="toggleMobileOrUserOrCard('mobile')">
+                                    Mobile No.
+                            </li>
+                            <li
+                                id="selectUserSection"
+                                onclick="toggleMobileOrUserOrCard('user')">
+                                    User ID
+                            </li>
+                            <li
+                                id="selectCardSection"
+                                onclick="toggleMobileOrUserOrCard('card')">
+                                    Card Details
+                            </li>
+                        </ul>
+                        <div id="mobile-login" class="view-mobile-login" style="display: none;">
+                            <div class="input-field">
+                                <img
+                                    class="icon"
+                                    id="login-mob-cross"
+                                    style="display:none"
+                                    src="/creditcards/resources/img/field-error.png">
+                                <input
+                                    name="mobile"
+                                    maxlength="14"
+                                    value="+91-"
+                                    id="moblogin"
+                                    type="text"
+                                    inputmode="numeric"
+                                    class=""
+                                    onkeyup="checkMobileLoginBtn('mobile')"
+                                    required/>
+                                <label id="mobile-ip-label" for="mobile_no" class="active">Registered
+                                    Mobile Number</label>
+                                <span
+                                    id="login-mob-err"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right"></span>
+                            </div>
+                            <div
+                                class="input-field"
+                                id="mobile-login-captcha-section"
+                                style="display: none;">
+                                <input
+                                    type="text"
+                                    id="mobile_captcha_input"
+                                    required
+                                    maxlength="15"
+                                    onkeyup="checkMobileLoginBtn('captcha')">
+                                <label id="login-mobile-captcha-label" for="mobile_captcha_input">
+                                Verification Code</label>
+                                <img
+                                    class="icon"
+                                    id="mobile-login-captcha-cross"
+                                    style="display:none;"
+                                    src="/creditcards/resources/img/field-error.png">
+                                <span
+                                    id="mobile_captcha_code_error"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right">Incorrect code! Please try again.</span>
+                                <div class="capthcha-wrap">
+                                    <div class="captcha-block">
+                                        <div>
+                                            <img
+                                                src=""
+                                                class="captcha-input-text-show"
+                                                id="mobile-captcha-show-img">
+                                        </div>
+                                        <div class="captcha-refresh-btn-block">
+                                            <img
+                                                src="/creditcards/resources/img/captch-refresh.png"
+                                                alt="refresh captcha"
+                                                onclick="refreshCaptcha('/creditcards/app/user/refresh-captcha',
+                                                    'mobilelogin')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <ul id="mob-multi-section" class="form-field-list hidden-mob-details">
+                                <li class="row padding-0" style="text-align:initial">
+                                    <div class="field-wrap text-wid last-4digit-verbiage-mt">
+                                        <span>Enter last 4-digit of the card for which you want to login</span>
+                                        <!-- needs to be changed after business requiremant -->
+                                    </div>
+                                </li>
+                                <div class="input-field">
+                                    <img
+                                        class="icon"
+                                        id="login-primarycard-cross"
+                                        style="display:none"
+                                        src="/creditcards/resources/img/field-error.png">
+                                    <input
+                                        name="mob-cardLastFourDigits"
+                                        class="sendOtp"
+                                        maxlength="4"
+                                        id="mob-primaryCard"
+                                        type="text"
+                                        inputmode="numeric"
+                                        onkeyup="checkMobileLoginBtn('primaryCard')"
+                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '');"
+                                        required/>
+                                    <label id="login-primaryCard-label" for="mob-primaryCard">Last 4-digit
+                                        of Primary Card</label>
+                                </div>
+                            </ul>
+                            <div
+                                class="input-field img-visible-wrap"
+                                id="mobile-login-select-image-section"
+                                style="display:none">
+                                <label class="active d-block">Verify your Authentication Image & Text
+                                    to continue
+                                    <span class="suggestion-hove-block position-relative">
+                                        <img src="/creditcards/resources/img/question.svg" alt="">
+                                        <span class="image-sugestion-box">
+                                            This is your Authentication Image & Text. It helps you in identifying
+                                            genuine SBI Card website over fake / fraudulent ones. If the Image &
+                                            Text is different from what you had set originally, do not enter your
+                                            login credentials.
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="iv-block text-center">
+                                    <div
+                                        class="text-md-sm form-gray-text-semibold"
+                                        id="mobileSelectedImageText"></div>
+                                    <img id="mobileSelectImageId" alt="selected image">
+                                </div>
+                                <div class="checkbox-block">
+                                    <label class="auth-image-checkbox-widthautho"><input
+                                            type="checkbox"
+                                            id="auth_img_txt_mobile"
+                                            class=""
+                                            required
+                                            onclick="imageCheckBoxClicked('mobilelogin')"> <span class="check"></span>
+                                        <span style="width: max-content; font-family: 'Open Sans'">
+                                            This is my Authentication Image &amp; Text
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="input-field" id="mobile-pin-section" style="display:none">
+                                <img
+                                    class="icon"
+                                    id="login-pin-cross"
+                                    style="display:none"
+                                    src="/creditcards/resources/img/field-error.png">
+                                <input
+                                    name="mob-pin"
+                                    class="sendOtp password-login otpEncrypt"
+                                    maxlength="4"
+                                    id="pin"
+                                    type="text"
+                                    value=""
+                                    onkeyup="checkMobileLoginBtn('pin')"
+                                    onclick="validateImageCheckboxcheckedOrNot('mobilelogin')"
+                                    oninput="this.value = this.value.replace(/[^0-9.]/g, '');"
+                                    required/>
+                                <label id="login-pin-label" for="pin">Card PIN</label>
+                                <span
+                                    id="mobile_pin_error"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right">Please verify your Authentication Image & Text
+                                    displayed above</span>
+                            </div>
+                            <div class="otp-msz" id="corporateVerbiageSection">
+                                <p>
+                                    <b>Note:</b>
+                                    Customers holding an SBI Corporate Credit Card need to login using
+                                    Card Details or User ID to access their Corporate Card account.</p>
+                            </div>
+                            <div
+                                class="mt-20 virtualkey user"
+                                id="mobileVirtualKeyboardTillGenOTP"
+                                style="position:relative;">
+                                <span class="boldtext">Virtual Keyboard</span>
+                                <br/>
+                                <span class="muted">Recommended for secure login</span>
+                                <div class="wrapper ">
+                                    <div class="switch-div">
+                                        <label class="switch">
+                                            <input type="checkbox"/>
+                                            <div class="switch-btn"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="proceedMobLoginBtn" class="input-field mt-30 add-disable">
+                                <a
+                                    onclick="proceedMobLoginBtn('/creditcards/app/user/validate-mobile-number')"
+                                    class="btn waves-effect waves-light blue-btn disable-btn"
+                                    id="loginGenOtpMob">Proceed</a>
+                            </div>
+                            <div
+                                id="proceedMultiAccountMobLoginBtn"
+                                class="input-field mt-30 add-disable"
+                                style="display:none">
+                                <a
+                                    onclick="proceedMultiAccountMobLoginBtn('/creditcards/app/user/validate-mobile-number')"
+                                    class="btn waves-effect waves-light blue-btn disable-btn"
+                                    id="proceedMultiAccountMobBtn">Proceed</a>
+                            </div>
+                            <div
+                                id="generate-otp-multi-mobile"
+                                class="input-field mt-30 add-disable"
+                                style="display:none">
+                                <a
+                                    onclick="generatedMobOtp()"
+                                    class="btn waves-effect waves-light blue-btn disable-btn"
+                                    id="loginMultiSubmitBtn">Generate OTP</a>
+                            </div>
+                            <input type="hidden" value="" id="otpMobKey" name="otpKey"/>
+                            <div id="mob-otp-section" style="display: none;">
+                                <div class="input-field">
+                                    <img
+                                        class="icon"
+                                        id="login-otp-cross"
+                                        style="display:none"
+                                        src="/creditcards/resources/img/field-error.png">
+                                    <input
+                                        name="mob-otp"
+                                        class="sendOtp password-login otpEncrypt"
+                                        maxlength="6"
+                                        id="otp"
+                                        type="text"
+                                        inputmode="numeric"
+                                        onkeyup="checkMobileLoginBtn('otp')"
+                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '');"
+                                        required/>
+                                    <label id="login-otp-label" for="otp">OTP</label>
+                                </div>
+                                <div id="loginMobOtpMsg" class="input-field" style="display: none;">
+                                    <div class="otp-msz" style="margin-top: -15px;">
+                                        <p id="otp-msz"></p>
+                                    </div>
+                                </div>
+                                <div class="mt-20 virtualkey mob" style="position:relative;">
+                                    <span class="boldtext">Virtual Keyboard</span>
+                                    <br/>
+                                    <span class="muted">Recommended for secure login</span>
+                                    <div class="wrapper ">
+                                        <div class="switch-div">
+                                            <label class="switch">
+                                                <input type="checkbox"/>
+                                                <div class="switch-btn"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="login-mob-submit" class="input-field mt-30 add-disable">
+                                    <a
+                                        type="button"
+                                        id="loginMobileSubmitBtn"
+                                        onclick="loginFormMobSubmit()"
+                                        class="btn waves-effect waves-light blue-btn disable-btn">Login</a>
+                                </div>
+                                <div class="resend-otp text-center">
+                                    <span
+                                        id="login-mob-resend-otp"
+                                        onclick="resendOtpForMobLogin('/creditcards/app/user/login-mobile-otp-resend')">
+                                        Resend OTP
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="user-login" class="view-user-login" style="display: none;">
+                            <div class="input-field">
+                                <input
+                                    name="username"
+                                    id="user_id"
+                                    type="text"
+                                    class=""
+                                    value=""
+                                    required
+                                    onkeyup="checkUserLoginBtn('userid')"/>
+                                <label id="login-user-label" for="user_id">User ID</label>
+                                <span
+                                    id="login-user-err"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right"></span>
+                            </div>
+                            <div
+                                class="input-field"
+                                id="userid-login-captcha-section"
+                                style="display: none;">
+                                <input
+                                    type="text"
+                                    id="captcha_input"
+                                    required
+                                    maxlength="15"
+                                    onkeyup="checkUserLoginBtn('captcha')">
+                                <label id="login-user-captcha-label" for="captcha_input">Verification
+                                    Code</label>
+                                <img
+                                    class="icon"
+                                    id="userid-login-captcha-cross"
+                                    style="display:none;"
+                                    src="/creditcards/resources/img/field-error.png">
+                                <span
+                                    id="userid_captcha_code_error"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right">Incorrect code! Please try again.</span>
+                                <div class="capthcha-wrap">
+                                    <div class="captcha-block">
+                                        <div>
+                                            <img
+                                                src=""
+                                                class="captcha-input-text-show"
+                                                id="user-captcha-show-img">
+                                        </div>
+                                        <div class="captcha-refresh-btn-block">
+                                            <img
+                                                src="/creditcards/resources/img/captch-refresh.png"
+                                                alt="refresh captcha"
+                                                onclick="refreshCaptcha('/creditcards/app/user/refresh-captcha',
+                                                    'userlogin')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="input-field img-visible-wrap"
+                                id="userid-login-select-image-section"
+                                style="display:none">
+                                <label class="active d-block">Verify your Authentication Image & Text
+                                    to continue
+                                    <span class="suggestion-hove-block position-relative">
+                                        <img src="/creditcards/resources/img/question.svg" alt="">
+                                        <span class="image-sugestion-box">
+                                            This is your Authentication Image & Text. It helps you in identifying
+                                            genuine SBI Card website over fake / fraudulent ones. If the Image &
+                                            Text is different from what you had set originally, do not enter your
+                                            login credentials.
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="iv-block text-center">
+                                    <div
+                                        class="text-md-sm form-gray-text-semibold"
+                                        id="userSelectedImageText"></div>
+                                    <img id="selectImageId" alt="selected image">
+                                </div>
+                                <div class="checkbox-block">
+                                    <label class="auth-image-checkbox-widthautho"><input
+                                            type="checkbox"
+                                            id="auth_img_txt_user_id"
+                                            class=""
+                                            required
+                                            onclick="imageCheckBoxClicked('userlogin')"> <span class="check"></span>
+                                        <span style="width: max-content; font-family: 'Open Sans'">
+                                            This is my Authentication Image &amp; Text
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div
+                                class="input-field"
+                                id="userid-login-password-section"
+                                style="display:none">
+                                <input
+                                    name="password"
+                                    id="encryped_password"
+                                    type="hidden"
+                                    class="password-login"
+                                    maxlength="16"/>
+                                <input
+                                    id="password"
+                                    type="password"
+                                    class="password-login"
+                                    maxlength="16"
+                                    required
+                                    onkeyup="checkUserLoginBtn('password')"
+                                    onclick="validateImageCheckboxcheckedOrNot('userlogin')"/>
+                                <label id="login-password-label" for="password">Password</label>
+                                <span
+                                    id="micro-password-err"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right"></span>
+                                <span
+                                    id="userid_password_error"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right">Please verify your Authentication Image & Text
+                                    displayed above</span>
+                            </div>
+                            <!-- Virtual Keyboard -->
+                            <div
+                                class="mt-20 virtualkey user"
+                                id="UserTillGenOtpVirtualKeybd"
+                                style="position:relative;">
+                                <span class="boldtext">Virtual Keyboard</span>
+                                <br/>
+                                <span class="muted">Recommended for secure login</span>
+                                <div class="wrapper ">
+                                    <div class="switch-div">
+                                        <label class="switch">
+                                            <input type="checkbox"/>
+                                            <div class="switch-btn"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                id="userid-login-proceed-button-section"
+                                class="input-field mt-30 add-disable">
+                                <a
+                                    onclick="proceedUseridLogin('/creditcards/app/user/validate-user-id')"
+                                    class="btn waves-effect waves-light blue-btn disable-btn"
+                                    id="loginProceedBtnUser">Proceed</a>
+                            </div>
+                            <div
+                                id="userid-generate-otp-button-section"
+                                class="input-field mt-30 add-disable"
+                                style="display:none">
+                                <a
+                                    onclick="generateUseridOtp('/creditcards/app/user/user-gen-otp')"
+                                    class="btn waves-effect waves-light blue-btn disable-btn"
+                                    id="loginGenOtpBtnUser">Generate OTP</a>
+                            </div>
+                            <div id="userid-otp-section" style="display: none;">
+                                <input type="hidden" id="userOtpKey" name="otpKey"/>
+                                <div class="input-field">
+                                    <img
+                                        class="icon"
+                                        id="login-userid-otp-cross"
+                                        style="display:none"
+                                        src="/creditcards/resources/img/field-error.png">
+                                    <input
+                                        name="otp"
+                                        class="sendOtp password-login otpEncrypt"
+                                        maxlength="6"
+                                        id="userid-otp"
+                                        type="text"
+                                        inputmode="numeric"
+                                        onkeyup="checkUserLoginBtn('otp')"
+                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '');"
+                                        required/>
+                                    <label id="login-userid-otp-label" for="userid-otp">OTP</label>
+                                </div>
+                                <div id="loginUserOtpMsg" class="input-field" style="display: none;">
+                                    <div class="otp-msz" style="margin-top: -15px;">
+                                        <p id="otp-msz"></p>
+                                    </div>
+                                </div>
+                                <div class="mt-20 virtualkey user" style="position:relative;">
+                                    <span class="boldtext">Virtual Keyboard</span>
+                                    <br/>
+                                    <span class="muted">Recommended for secure login</span>
+                                    <div class="wrapper ">
+                                        <div class="switch-div">
+                                            <label class="switch">
+                                                <input type="checkbox"/>
+                                                <div class="switch-btn"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="loginUserSubmitBtn" class="input-field mt-30 add-disable">
+                                    <a
+                                        type="button"
+                                        class="btn waves-effect waves-light blue-btn disable-btn"
+                                        id="loginUserSubmitBtnEnter"
+                                        onclick="evar_set('sbi-card:login:login');trk_event_set('event5');
+                                            events_set('event5');setAnalytics('sbi-card:login:loginintent','Login','login');checkAndLogin();">
+                                    Login</a>
+                                </div>
+                                <div class="resend-otp-userid text-center">
+                                    <span
+                                        id="login-user-resend-otp"
+                                        onclick="resendOtpForUserLogin('/creditcards/app/user/user-resend-otp')">
+                                    Resend OTP</span>
+                                </div>
+                            </div>
+                            <p class="info-text mt-30 text-center">
+                                <a href="#" class="blue-text-14 login-reset-password forget-password">
+                                Forgot User ID / Password</a>
+                            </p>
+                            <p class="info-text text-center">First time user -
+                                <a href="#" class="blue-text-14 login-reset-password first-time-user">
+                                Register now</a>
+                            </p>
+                            <p class="info-text text-center">User ID is locked -
+                                <a href="#" class="blue-text-14 login-reset-password unlock-account">
+                                Unlock User ID</a>
+                            </p>
+                        </div>
+                        <div id="card-login" class="view-card-login" style="display: none;">
+                            <div class="input-field">
+                                <img
+                                    class="icon card-login-cross-icon"
+                                    id="login-card-cross"
+                                    style="display:none"
+                                    src="/creditcards/resources/img/field-error.png">
+                                <input
+                                    name="cnum"
+                                    id="card_no"
+                                    type="text"
+                                    class=""
+                                    value=""
+                                    required
+                                    onpaste="showPasswordCardModal()"
+                                    onkeypress='return event.charCode >= 48 && event.charCode <= 57'
+                                    onkeyup="checkCardLoginBtn('cardNumber')"
+                                    oninput="this.value = this.value.replace(/[^0-9-]/g, '');"/>
+                                <span class="password-icon pasword-icon-icon"><img src="/creditcards/resources/img/eye-closed.svg"> </span>
+                                <label id="login-card-label" for="card_no">Primary Card Number</label>
+                                <span
+                                    id="login-card-err"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right"></span>
+                            </div>
+                            <div
+                                class="input-field"
+                                id="card-login-captcha-section"
+                                style="display:none">
+                                <input
+                                    type="text"
+                                    id="card_captcha_input"
+                                    required
+                                    maxlength="15"
+                                    onkeyup="checkCardLoginBtn('captcha')">
+                                <label id="login-card-captcha-label" for="card_captcha_input">
+                                Verification Code</label>
+                                <img
+                                    class="icon"
+                                    id="card-login-captcha-cross"
+                                    style="display:none;"
+                                    src="/creditcards/resources/img/field-error.png">
+                                <span
+                                    id="card_captcha_code_error"
+                                    style="display: none;"
+                                    class="helper-text"
+                                    data-success="right">Incorrect code! Please try again.</span>
+                                <div class="capthcha-wrap">
+                                    <div class="captcha-block">
+                                        <div>
+                                            <img
+                                                src=""
+                                                class="captcha-input-text-show"
+                                                id="card-captcha-show-img">
+                                        </div>
+                                        <div class="captcha-refresh-btn-block">
+                                            <img
+                                                src="/creditcards/resources/img/captch-refresh.png"
+                                                alt="refresh captcha"
+                                                onclick="refreshCaptcha('/creditcards/app/user/refresh-captcha',
+                                                    'cardlogin')">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                class="input-field img-visible-wrap"
+                                id="card-login-select-image-section"
+                                style="display:none">
+                                <label class="active d-block">Verify your Authentication Image & Text
+                                    to continue
+                                    <span class="suggestion-hove-block position-relative">
+                                        <img src="/creditcards/resources/img/question.svg" alt="">
+                                        <span class="image-sugestion-box">
+                                            This is your Authentication Image & Text. It helps you in identifying
+                                            genuine SBI Card website over fake / fraudulent ones. If the Image &
+                                            Text is different from what you had set originally, do not enter your
+                                            login credentials.
+                                        </span>
+                                    </span>
+                                </label>
+                                <div class="iv-block text-center">
+                                    <div
+                                        class="text-md-sm form-gray-text-semibold"
+                                        id="cardSelectedImageText"></div>
+                                    <img id="cardSelectImageId" alt="selected image">
+                                </div>
+                                <div class="checkbox-block">
+                                    <label class="auth-image-checkbox-widthautho"><input
+                                            type="checkbox"
+                                            id="auth_img_txt_card"
+                                            class=""
+                                            onclick="imageCheckBoxClicked('cardlogin')"
+                                            required> <span class="check"></span>
+                                        <span style="width: max-content; font-family: 'Open Sans'">
+                                            This is my Authentication Image &amp; Text
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div
+                                class="input-field"
+                                id="dummy-card-dob-section"
+                                style="display:none">
+                                <img
+                                    class="icon"
+                                    id="dummy-login-calendar"
+                                    style="top:17px; cursor:pointer"
+                                    src="/creditcards/resources/img/calendar.svg">
+                                <img
+                                    class="icon icon1"
+                                    id="login-dob-cross"
+                                    style="display:none"
+                                    src="/creditcards/resources/img/field-error.png">
+                                <input
+                                    class="sendOtp dummy-card-dob-width100"
+                                    id="dummy-card-dob"
+                                    type="text"
+                                    onclick="validateImageCheckboxcheckedOrNot('cardlogin')"
+                                    required
+                                    readonly/>
+                                <label id="dummy-login-dob-label" for="dummy-card-dob">Date of Birth
+                                    (DD-MMM-YYYY)</label>
+                                <span
+                                    id="card_calendar_error"
+                                    class="helper-text"
+                                    data-success="right">Please verify your Authentication Image & Text
+                                    displayed above</span>
+                            </div>
+                            <div
+                                class="input-field datepicker"
+                                id="card-dob-section"
+                                style="display:none">
+                                <img
+                                    class="icon"
+                                    id="login-calendar"
+                                    style="top:17px; cursor:pointer"
+                                    src="/creditcards/resources/img/calendar.svg">
+                                <input
+                                    name="dob"
+                                    class="sendOtp date-field"
+                                    id="card-dob"
+                                    type="text"
+                                    class=""
+                                    required
+                                    readonly/>
+                                <label id="login-dob-label" for="card-dob">Date of Birth (DD-MMM-YYYY)</label>
+                            </div>
+                            <div
+                                class="mt-20 virtualkey user"
+                                id="cardVirtualKeyboardTillGenOTP"
+                                style="position:relative;">
+                                <span class="boldtext">Virtual Keyboard</span>
+                                <br/>
+                                <span class="muted">Recommended for secure login</span>
+                                <div class="wrapper ">
+                                    <div class="switch-div">
+                                        <label class="switch">
+                                            <input type="checkbox"/>
+                                            <div class="switch-btn"></div>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div
+                                id="card-login-proceed-button-section"
+                                class="input-field mt-30 add-disable">
+                                <a
+                                    onclick="proceedCardLogin('/creditcards/app/user/validate-card-number')"
+                                    class="btn waves-effect waves-light blue-btn disable-btn"
+                                    id="loginProceedBtnCard">Proceed</a>
+                            </div>
+                            <div
+                                id="loginCardSubmitBtn"
+                                class="input-field mt-30 add-disable"
+                                style="display:none">
+                                <a
+                                    type="button"
+                                    id="loginGenOtpCard"
+                                    class="btn waves-effect waves-light blue-btn disable-btn"
+                                    onclick="genCardOtp('/creditcards/app/user/login-card-otp-gen');">
+                                Generate OTP</a>
+                            </div>
+                            <div id="card-otp-section" style="display: none;">
+                                <input type="hidden" id="cardOtpKey" name="cardOtpKey"/>
+                                <div class="input-field">
+                                    <img
+                                        class="icon"
+                                        id="login-card-otp-cross"
+                                        style="display:none"
+                                        src="/creditcards/resources/img/field-error.png">
+                                    <input
+                                        name="card-otp"
+                                        class="sendOtp password-login otpEncrypt"
+                                        maxlength="6"
+                                        id="card-otp"
+                                        type="text"
+                                        inputmode="numeric"
+                                        onkeyup="checkCardLoginBtn('otp')"
+                                        oninput="this.value = this.value.replace(/[^0-9.]/g, '');"
+                                        required/>
+                                    <label id="login-card-otp-label" for="card-otp">OTP</label>
+                                </div>
+                                <div id="loginCardOtpMsg" class="input-field" style="display: none;">
+                                    <div class="otp-msz" style="margin-top: -15px;">
+                                        <p id="otp-msz"></p>
+                                    </div>
+                                </div>
+                                <div class="mt-20 virtualkey card" style="position:relative;">
+                                    <span class="boldtext">Virtual Keyboard</span>
+                                    <br/>
+                                    <span class="muted">Recommended for secure login</span>
+                                    <div class="wrapper ">
+                                        <div class="switch-div">
+                                            <label class="switch">
+                                                <input type="checkbox"/>
+                                                <div class="switch-btn"></div>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="login-card-submit" class="input-field mt-30 add-disable">
+                                    <a
+                                        type="button"
+                                        id="loginCardSubmitBtnEnter"
+                                        onclick="loginFormCardSubmit()"
+                                        class="btn waves-effect waves-light blue-btn disable-btn">Login</a>
+                                </div>
+                                <div class="resend-otp-card text-center">
+                                    <span
+                                        id="login-card-resend-otp"
+                                        onclick="resendOtpForCardLogin('/creditcards/app/user/login-card-otp-resend')">
+                                        Resend OTP
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="divide-form order-first img-illustrator-mob-none"
+                    id="ImageAboveFooterOnLoginPage">
+                    <img
+                        alt="Login-img"
+                        src="/creditcards/resources/img/digi-col-login.png"
+                        class="img-fluid mobile-view-above-footer-image"/>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>
