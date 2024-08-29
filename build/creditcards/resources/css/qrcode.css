@@ -1,7 +1,9 @@
 /* Override section width to accommodate QR Code designs */
+@media (min-width: 769px) {
 .login-functional {
-    max-width: 479px !important;
+        max-width: 479px !important
 }
+    }
 /* QR Code login tab heading */
 @media (max-width: 768px) {
 #selectQrCodeSection {

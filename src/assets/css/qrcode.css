@@ -1,6 +1,8 @@
 /* Override section width to accommodate QR Code designs */
 .login-functional {
-    max-width: 479px !important;
+    @media (min-width: 769px) {
+        max-width: 479px !important;
+    }
 }
 
 
