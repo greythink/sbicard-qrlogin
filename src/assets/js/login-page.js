@@ -2141,6 +2141,7 @@ $(document).ready(function () {
     fetch_cardNumber = fetch_cardNumber ? decryptCardNumber(fetch_cardNumber) : "";
     $('#card-login #card-dob').val(fetch_cardDob);
     var loginStrategy = $('#loginStrategy').val();
+    var mobileLoginStrategy = $('#mobileLoginStrategy').val();
     var passwordValue = $('#password_received').val();
 
     endSessionExistMob = window.location.href.indexOf('endSessionMob=true') > -1;
@@ -2320,55 +2321,66 @@ $(document).ready(function () {
         resetCardSection();
     }
 
-    if (loginStrategy == 'LOGIN_STRATEGY_QRCODE') {
-        // $('#selectCardSection').trigger('click');
-        $('#selectQrCodeSection').addClass('active');
-        $('#selectCardSection').removeClass('active');
-        $('#selectUserSection').removeClass('active');
-        $('#selectMobileSection').removeClass('active');
-        $("#qrcode-login").css("display", "block");
-        $("#card-login").css("display", "none");
-        $("#mobile-login").css("display", "none");
-        $("#user-login").css("display", "none");
-    } else if (loginStrategy == 'LOGIN_STRATEGY_CARD_AND_DOB') {
-        // $('#selectCardSection').trigger('click');
-        $('#selectCardSection').addClass('active');
-        $('#selectQrCodeSection').removeClass('active');
-        $('#selectUserSection').removeClass('active');
-        $('#selectMobileSection').removeClass('active');
-        $("#card-login").css("display", "block");
-        $("#qrcode-login").css("display", "none");
-        $("#mobile-login").css("display", "none");
-        $("#user-login").css("display", "none");
-    } else if (loginStrategy == 'LOGIN_STRATEGY_USER_AND_PWD') {
-        // $('#selectUserSection').trigger('click');
-        $('#selectUserSection').addClass('active');
-        $('#selectQrCodeSection').removeClass('active');
-        $('#selectMobileSection').removeClass('active');
-        $('#selectCardSection').removeClass('active');
-        $("#user-login").css("display", "block");
-        $("#qrcode-login").css("display", "none");
-        $("#card-login").css("display", "none");
-        $("#mobile-login").css("display", "none");
-    } else if (endSessionExist) {
-        // $('#selectCardSection').trigger('click');
-        $('#selectCardSection').addClass('active');
-        $('#selectQrCodeSection').removeClass('active');
-        $('#selectUserSection').removeClass('active');
-        $('#selectMobileSection').removeClass('active');
-        $("#card-login").css("display", "block");
-        $("#qrcode-login").css("display", "none");
-        $("#mobile-login").css("display", "none");
-        $("#user-login").css("display", "none");
-    } else {
-        // $('#selectMobileSection').trigger('click');
-        $('#selectMobileSection').addClass('active');
-        $('#selectCardSection').removeClass('active');
-        $('#selectUserSection').removeClass('active');
-        $("#qrcode-login").css("display", "none");
-        $("#card-login").css("display", "none");
-        $("#user-login").css("display", "none");
-        $("#mobile-login").css("display", "block");
+    function loginStrategyInit() {
+        if (loginStrategy == 'LOGIN_STRATEGY_QRCODE') {
+            // $('#selectCardSection').trigger('click');
+            $('#selectQrCodeSection').addClass('active');
+            $('#selectCardSection').removeClass('active');
+            $('#selectUserSection').removeClass('active');
+            $('#selectMobileSection').removeClass('active');
+            $("#qrcode-login").css("display", "block");
+            $("#card-login").css("display", "none");
+            $("#mobile-login").css("display", "none");
+            $("#user-login").css("display", "none");
+        } else if (loginStrategy == 'LOGIN_STRATEGY_CARD_AND_DOB') {
+            // $('#selectCardSection').trigger('click');
+            $('#selectCardSection').addClass('active');
+            $('#selectQrCodeSection').removeClass('active');
+            $('#selectUserSection').removeClass('active');
+            $('#selectMobileSection').removeClass('active');
+            $("#card-login").css("display", "block");
+            $("#qrcode-login").css("display", "none");
+            $("#mobile-login").css("display", "none");
+            $("#user-login").css("display", "none");
+        } else if (loginStrategy == 'LOGIN_STRATEGY_USER_AND_PWD') {
+            // $('#selectUserSection').trigger('click');
+            $('#selectUserSection').addClass('active');
+            $('#selectQrCodeSection').removeClass('active');
+            $('#selectMobileSection').removeClass('active');
+            $('#selectCardSection').removeClass('active');
+            $("#user-login").css("display", "block");
+            $("#qrcode-login").css("display", "none");
+            $("#card-login").css("display", "none");
+            $("#mobile-login").css("display", "none");
+        } else if (endSessionExist) {
+            // $('#selectCardSection').trigger('click');
+            $('#selectCardSection').addClass('active');
+            $('#selectQrCodeSection').removeClass('active');
+            $('#selectUserSection').removeClass('active');
+            $('#selectMobileSection').removeClass('active');
+            $("#card-login").css("display", "block");
+            $("#qrcode-login").css("display", "none");
+            $("#mobile-login").css("display", "none");
+            $("#user-login").css("display", "none");
+        } else {
+            // $('#selectMobileSection').trigger('click');
+            $('#selectMobileSection').addClass('active');
+            $('#selectCardSection').removeClass('active');
+            $('#selectUserSection').removeClass('active');
+            $("#qrcode-login").css("display", "none");
+            $("#card-login").css("display", "none");
+            $("#user-login").css("display", "none");
+            $("#mobile-login").css("display", "block");
+        }
+    }
+
+    var qrCheckwindowWidth = $(window).width();
+    var qrCheckIsMobile = qrCheckwindowWidth < 769;
+    if (qrCheckIsMobile && loginStrategy === 'LOGIN_STRATEGY_QRCODE') {
+        loginStrategy = mobileLoginStrategy;
+    }
+    loginStrategyInit();
+
     }
 
     $('#mobile-login #pin').focus(function () {
