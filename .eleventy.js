@@ -12,7 +12,7 @@ module.exports = function (config) {
     config.addPassthroughCopy({ 'src/assets/logo': assetBasePath + '/img' });
     config.addPassthroughCopy({ 'src/assets/icons': assetBasePath + '/img' });
     config.addPassthroughCopy({ 'src/assets/media': assetBasePath + '/img' });
-    config.addPassthroughCopy({ 'src/assets/css': assetBasePath + '/css' });
+    config.addPassthroughCopy({ 'src/assets/css/ie.css': assetBasePath + '/css/ie.css' });
     config.addPassthroughCopy({ 'src/assets/min-css': assetBasePath + '/min-css' });
     config.addPassthroughCopy({ 'src/assets/js': assetBasePath + '/js' });
     config.addPassthroughCopy({ 'src/assets/min-js': assetBasePath + '/min-js' });

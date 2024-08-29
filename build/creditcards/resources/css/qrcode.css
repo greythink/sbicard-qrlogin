@@ -1,0 +1,54 @@
+/* Override section width to accommodate QR Code designs */
+.login-functional {
+    max-width: 479px !important;
+}
+#qrcode-login {
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+    margin-top: -40px;
+}
+#qrcode-login * {
+        -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
+    }
+#qrcode-login img {
+        max-width: 100%;
+    }
+#qrcode-login .qrcode-login-body {
+        padding: 20px 20px 20px 16px;
+        background: #F2F7FD;
+    }
+#qrcode-login .qrcode-login-body-inner {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -moz-box;
+        display: flex;
+    }
+#qrcode-login .qrcode-login-body-inner .qrlb-col-1 {
+            width: 59.367946%;
+            padding-right: 12px;
+        }
+#qrcode-login .qrcode-login-body-inner .qrlb-col-2 {
+            width: 40.632054%;
+            background: #ffffff;
+        }
+#qrcode-login .qrcode-login-body-inner .qrlb-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+#qrcode-login .qrcode-login-body-inner .qrlb-subheading {
+            font-weight: 700;
+        }
+#qrcode-login .qrcode-login-body-inner .qrlb-instructions {
+            margin: 30px 0;
+            padding: 0 0 0 20px;
+        }
+#qrcode-login .qrcode-login-body-inner .qrlb-instructions li {
+                margin-bottom: 16px;
+            }
+#qrcode-login .qrcode-login-body-inner .qrlb-instructions li:last-child {
+                    margin-bottom: 0;
+                }
