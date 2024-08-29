@@ -7,7 +7,7 @@
         type="hidden"
         name="loginStrategy"
         id="loginStrategy"
-        value="LOGIN_STRATEGY_MOBILE_AND_OTP"/>
+        value="LOGIN_STRATEGY_QRCODE"/>
     <input
         type="hidden"
         name="fetch_mobNumber"
@@ -76,6 +76,11 @@
                     <div class="login-functional m-auto">
                         <ul class="login-tabs">
                             <li
+                                id="selectQrCodeSection"
+                                onclick="toggleMobileOrUserOrCard('qrcode')">
+                                    QR Code
+                            </li>
+                            <li
                                 id="selectMobileSection"
                                 onclick="toggleMobileOrUserOrCard('mobile')">
                                     Mobile No.
@@ -91,6 +96,8 @@
                                     Card Details
                             </li>
                         </ul>
+                        <div id="qrcode-login" class="view-qrcode-login">
+                        </div>
                         <div id="mobile-login" class="view-mobile-login" style="display: none;">
                             <div class="input-field">
                                 <img

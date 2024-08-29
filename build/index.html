@@ -578,7 +578,7 @@ F.toJSON=function(){return E.G};if(Db.Proxy&&qa.dT_.bcv("exp"))return F=new Prox
         type="hidden"
         name="loginStrategy"
         id="loginStrategy"
-        value="LOGIN_STRATEGY_MOBILE_AND_OTP"/>
+        value="LOGIN_STRATEGY_QRCODE"/>
     <input
         type="hidden"
         name="fetch_mobNumber"
@@ -647,6 +647,11 @@ F.toJSON=function(){return E.G};if(Db.Proxy&&qa.dT_.bcv("exp"))return F=new Prox
                     <div class="login-functional m-auto">
                         <ul class="login-tabs">
                             <li
+                                id="selectQrCodeSection"
+                                onclick="toggleMobileOrUserOrCard('qrcode')">
+                                    QR Code
+                            </li>
+                            <li
                                 id="selectMobileSection"
                                 onclick="toggleMobileOrUserOrCard('mobile')">
                                     Mobile No.
@@ -662,6 +667,8 @@ F.toJSON=function(){return E.G};if(Db.Proxy&&qa.dT_.bcv("exp"))return F=new Prox
                                     Card Details
                             </li>
                         </ul>
+                        <div id="qrcode-login" class="view-qrcode-login">
+                        </div>
                         <div id="mobile-login" class="view-mobile-login" style="display: none;">
                             <div class="input-field">
                                 <img
@@ -1584,7 +1591,7 @@ F.toJSON=function(){return E.G};if(Db.Proxy&&qa.dT_.bcv("exp"))return F=new Prox
     <!--[if IE 8]>
         <script type="text/javascript" src="/creditcards/resources/concat-js/ie.all.js"></script>
     <![endif]-->
-    <script type="text/javascript" src="/creditcards/resources/min-js/custom.min.js?rel=a7a555b4de"></script>
+    
 
     <input type="hidden" id="deliveryChargeWithGST"
         data-delivery-charge-with-gst="" />

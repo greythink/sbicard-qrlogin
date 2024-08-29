@@ -244,10 +244,25 @@ function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
     $('#login-submit-ajaxerror').css("display", "none");
     $('.main-wrap.campaign-wrap.no-border.login-page-loggedout').css("display", "none");
 
-    if (type === "card") {
-        $('#selectCardSection').addClass('active');
+    if (type === "qrcode") {
+        $('#selectQrCodeSection').addClass('active');
+        $('#selectCardSection').removeClass('active');
         $('#selectUserSection').removeClass('active');
         $('#selectMobileSection').removeClass('active');
+        $("#qrcode-login").css("display", "block");
+        $("#card-login").css("display", "none");
+        $("#mobile-login").css("display", "none");
+        $("#user-login").css("display", "none");
+        resetMobileSection();
+        resetUserPassSection();
+        resetCardSection();
+
+    } else if (type === "card") {
+        $('#selectCardSection').addClass('active');
+        $('#selectQrCodeSection').removeClass('active');
+        $('#selectUserSection').removeClass('active');
+        $('#selectMobileSection').removeClass('active');
+        $("#qrcode-login").css("display", "none");
         $("#card-login").css("display", "block");
         $("#mobile-login").css("display", "none");
         $("#user-login").css("display", "none");
@@ -257,8 +272,10 @@ function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
 
     } else if (type === "mobile") {
         $('#selectMobileSection').addClass('active');
+        $('#selectQrCodeSection').removeClass('active');
         $('#selectCardSection').removeClass('active');
         $('#selectUserSection').removeClass('active');
+        $("#qrcode-login").css("display", "none");
         $("#card-login").css("display", "none");
         $("#user-login").css("display", "none");
         $("#mobile-login").css("display", "block");
@@ -268,8 +285,10 @@ function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
     }
     else if (type === "user") {
         $('#selectUserSection').addClass('active');
+        $('#selectQrCodeSection').removeClass('active');
         $('#selectMobileSection').removeClass('active');
         $('#selectCardSection').removeClass('active');
+        $("#qrcode-login").css("display", "none");
         $("#user-login").css("display", "block");
         $("#card-login").css("display", "none");
         $("#mobile-login").css("display", "none");
@@ -2301,28 +2320,44 @@ $(document).ready(function () {
         resetCardSection();
     }
 
-    if (loginStrategy == 'LOGIN_STRATEGY_CARD_AND_DOB') {
+    if (loginStrategy == 'LOGIN_STRATEGY_QRCODE') {
+        // $('#selectCardSection').trigger('click');
+        $('#selectQrCodeSection').addClass('active');
+        $('#selectCardSection').removeClass('active');
+        $('#selectUserSection').removeClass('active');
+        $('#selectMobileSection').removeClass('active');
+        $("#qrcode-login").css("display", "block");
+        $("#card-login").css("display", "none");
+        $("#mobile-login").css("display", "none");
+        $("#user-login").css("display", "none");
+    } else if (loginStrategy == 'LOGIN_STRATEGY_CARD_AND_DOB') {
         // $('#selectCardSection').trigger('click');
         $('#selectCardSection').addClass('active');
+        $('#selectQrCodeSection').removeClass('active');
         $('#selectUserSection').removeClass('active');
         $('#selectMobileSection').removeClass('active');
         $("#card-login").css("display", "block");
+        $("#qrcode-login").css("display", "none");
         $("#mobile-login").css("display", "none");
         $("#user-login").css("display", "none");
     } else if (loginStrategy == 'LOGIN_STRATEGY_USER_AND_PWD') {
         // $('#selectUserSection').trigger('click');
         $('#selectUserSection').addClass('active');
+        $('#selectQrCodeSection').removeClass('active');
         $('#selectMobileSection').removeClass('active');
         $('#selectCardSection').removeClass('active');
         $("#user-login").css("display", "block");
+        $("#qrcode-login").css("display", "none");
         $("#card-login").css("display", "none");
         $("#mobile-login").css("display", "none");
     } else if (endSessionExist) {
         // $('#selectCardSection').trigger('click');
         $('#selectCardSection').addClass('active');
+        $('#selectQrCodeSection').removeClass('active');
         $('#selectUserSection').removeClass('active');
         $('#selectMobileSection').removeClass('active');
         $("#card-login").css("display", "block");
+        $("#qrcode-login").css("display", "none");
         $("#mobile-login").css("display", "none");
         $("#user-login").css("display", "none");
     } else {
@@ -2330,6 +2365,7 @@ $(document).ready(function () {
         $('#selectMobileSection').addClass('active');
         $('#selectCardSection').removeClass('active');
         $('#selectUserSection').removeClass('active');
+        $("#qrcode-login").css("display", "none");
         $("#card-login").css("display", "none");
         $("#user-login").css("display", "none");
         $("#mobile-login").css("display", "block");
