@@ -33,6 +33,9 @@
 #qrcode-login .qrcode-login-body-inner .qrlb-col-2 {
             width: 40.632054%;
             background: #ffffff;
+            padding: 20px;
+            -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+                    box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
         }
 #qrcode-login .qrcode-login-body-inner .qrlb-heading {
             font-size: 18px;
@@ -41,6 +44,8 @@
         }
 #qrcode-login .qrcode-login-body-inner .qrlb-subheading {
             font-weight: 700;
+            text-align: center;
+            margin: 0 auto 10px;
         }
 #qrcode-login .qrcode-login-body-inner .qrlb-instructions {
             margin: 30px 0;
@@ -52,3 +57,8 @@
 #qrcode-login .qrcode-login-body-inner .qrlb-instructions li:last-child {
                     margin-bottom: 0;
                 }
+#qrcode-login .qrcode-login-body-inner .qrcode-container img {
+            -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+                    box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+            border-radius: 12px;
+        }

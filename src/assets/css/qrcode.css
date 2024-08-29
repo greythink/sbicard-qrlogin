@@ -32,6 +32,8 @@
         .qrlb-col-2 {
             width: 40.632054%;
             background: #ffffff;
+            padding: 20px;
+            box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
         }
 
         .qrlb-heading {
@@ -41,6 +43,8 @@
         }
         .qrlb-subheading {
             font-weight: 700;
+            text-align: center;
+            margin: 0 auto 10px;
         }
         .qrlb-instructions {
             margin: 30px 0;
@@ -53,6 +57,11 @@
                     margin-bottom: 0;
                 }
             }
+        }
+
+        .qrcode-container img {
+            box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+            border-radius: 12px;
         }
     }
 }
