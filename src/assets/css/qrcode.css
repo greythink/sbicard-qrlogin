@@ -1,0 +1,62 @@
+/* Override section width to accommodate QR Code designs */
+.login-functional {
+    max-width: 479px !important;
+}
+
+
+
+#qrcode-login {
+    box-sizing: border-box;
+    margin-top: -40px;
+
+    * {
+        box-sizing: border-box;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    .qrcode-login-body {
+        padding: 20px 20px 20px 16px;
+        background: #F2F7FD;
+    }
+
+    .qrcode-login-body-inner {
+        display: flex;
+
+        .qrlb-col-1 {
+            width: 59.367946%;
+            padding-right: 12px;
+        }
+        .qrlb-col-2 {
+            width: 40.632054%;
+            background: #ffffff;
+        }
+
+        .qrlb-heading {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .qrlb-subheading {
+            font-weight: 700;
+        }
+        .qrlb-instructions {
+            margin: 30px 0;
+            padding: 0 0 0 20px;
+
+            li {
+                margin-bottom: 16px;
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .qrcode-container {
+
+        }
+    }
+}
