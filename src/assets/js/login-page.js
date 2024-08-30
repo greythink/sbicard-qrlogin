@@ -283,6 +283,7 @@ function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
         resetUserPassSection();
         resetCardSection();
     }
+
     else if (type === "user") {
         $('#selectUserSection').addClass('active');
         $('#selectQrCodeSection').removeClass('active');
@@ -2329,6 +2330,7 @@ $(document).ready(function () {
         resetCardSection();
     }
 
+    // A new login strategy has been introduced to handle QR Code based login and the existing code has been moved inside the `loginStrategyInit` function.
     function loginStrategyInit() {
         if (loginStrategy == 'LOGIN_STRATEGY_QRCODE') {
             // $('#selectCardSection').trigger('click');
@@ -2382,6 +2384,7 @@ $(document).ready(function () {
         }
     }
 
+    // Switch to mobile no. and OTP based login strategy on mobile devices
     var qrCheckwindowWidth = $(window).width();
     var qrCheckIsMobile = qrCheckwindowWidth < 769;
     if (qrCheckIsMobile && loginStrategy === 'LOGIN_STRATEGY_QRCODE') {
