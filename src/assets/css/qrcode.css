@@ -82,9 +82,11 @@
             }
         }
 
-        .qrcode-container img {
-            box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
-            border-radius: 12px;
+        .qrcode-container {
+            img {
+                box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+                border-radius: 12px;
+            }
         }
     }
 }
