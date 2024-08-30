@@ -304,6 +304,14 @@ function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
         endSessionExistMob = false;
     }
 }
+// Switch to Mobile no. tab on mobile as QR Code tab will be hidden
+$(window).on('resize', function () {
+    var windowWidth = $(window).width();
+    var isMobile = windowWidth < 769;
+    if (isMobile && $('#selectQrCodeSection').hasClass('active')) {
+        toggleMobileOrUserOrCard('mobile');
+    }
+});
 
 var resendOTPCountMob = 0;
 
