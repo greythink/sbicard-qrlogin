@@ -49,8 +49,11 @@
             width: 59.367946%;
             padding-right: 12px;
         }
+
         .qrlb-col-2 {
             width: 40.632054%;
+        }
+        .qrlb-col-2-inner {
             background: #ffffff;
             padding: 20px;
             box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
