@@ -105,7 +105,7 @@ A few important points to note:
 - The overall width of the login forms section had to be increased a little to accommodate the additional tab on non-mobile-sized screens.
 
 
-### Javascript
+### Javascript/Logic
 
 Some changes need to be made in `/creditcards/resources/js/login-page.js`.
 
