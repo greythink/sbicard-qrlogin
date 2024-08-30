@@ -36,7 +36,7 @@
         max-width: 100%;
     }
 #qrcode-login .qrcode-login-body {
-        padding: 20px 20px 20px 16px;
+        padding: 16px;
         background: #F2F7FD;
     }
 #qrcode-login .qrcode-login-body-inner {
@@ -54,7 +54,7 @@
         }
 #qrcode-login .qrcode-login-body-inner .qrlb-col-2-inner {
             background: #ffffff;
-            padding: 20px;
+            padding: 16px;
             -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
                     box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
         }
