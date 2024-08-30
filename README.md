@@ -293,9 +293,9 @@ $('#mobile-login #pin').focus(function () {
 
 ### Important Additional Note
 
-Both `/credtotcards/resources/js/login-page.js` and `/credtotcards/resources/min-js/custom.min.js` are currently loaded, which seem to have the same logic (except one if the minified version of another). Making changes in `login-page.js` will not work is `custom.min.js` is not removed. Only one of these files should be kept. It can lead to errors or unintended behaviour if the same JS is added twice, even if in different forms.
+Both `/creditcards/resources/js/login-page.js` and `/creditcards/resources/min-js/custom.min.js` are currently loaded, which seem to have the same logic (except one is the minified version of another). Making changes in `login-page.js` will not work if `custom.min.js` is not removed. Only one of these files should be kept. It can lead to errors or unintended behaviour if the same JS is added twice, even if in different forms.
 
-As an aside, the same issue is also noticed with cache related headers added in the `<head>` element. The same directives with the same or different values are added multiple times. For example:
+As an aside, the same issue is also noticed with cache related directives added in the `<head>` element. The same directives with the same or different values are added multiple times. For example:
 ```html
 <meta http-equiv="Pragma" content="no-cache" />
 <meta http-equiv="Cache-Control" content="no-cache" />
