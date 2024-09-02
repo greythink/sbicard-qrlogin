@@ -8,7 +8,7 @@
 
 
 /* Override some styles on tablet-sized screens to prevent tab headings from wrapping into new lines */
-@media (max-width: 1199px) and (min-width: 768px) {
+@media (max-width: 1200px) and (min-width: 768px) {
   body.login-page-container .login-tabs li {
     font-size: 12px !important;
     padding: 10px 8px;
@@ -55,29 +55,57 @@ body.login-page-container .login-tabs li {
     .qrcode-login-body {
         padding: 16px;
         background: #F2F7FD;
+
+        @media (max-width: 1200px) and (min-width: 768px) {
+            padding: 20px;
+        }
     }
 
     .qrcode-login-body-inner {
         display: flex;
+        flex-direction: row;
+
+        @media (max-width: 1200px) and (min-width: 768px) {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
 
         .qrlb-col-1 {
             width: 59.367946%;
             padding-right: 12px;
+
+            @media (max-width: 1200px) and (min-width: 768px) {
+                margin-top: 20px;
+                padding-right: 0;
+                width: 100%;
+            }
         }
 
         .qrlb-col-2 {
             width: 40.632054%;
+
+            @media (max-width: 1200px) and (min-width: 768px) {
+                width: 48.109966%;
+            }
         }
         .qrlb-col-2-inner {
             background: #ffffff;
             padding: 16px;
             box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+
+            @media (max-width: 1200px) and (min-width: 768px) {
+                padding: 10px 20px;
+            }
         }
 
         .qrlb-heading {
             font-size: 18px;
             font-weight: 600;
             margin: 0;
+
+            @media (max-width: 1200px) and (min-width: 768px) {
+                font-size: 14px;
+            }
         }
         .qrlb-subheading {
             font-weight: 700;
@@ -88,8 +116,17 @@ body.login-page-container .login-tabs li {
             margin: 30px 0 16px;
             padding: 0 0 0 20px;
 
+            @media (max-width: 1200px) and (min-width: 768px) {
+                margin: 10px 0 0;
+                font-size: 12px;
+            }
+
             li {
                 margin-bottom: 16px;
+
+                @media (max-width: 1200px) and (min-width: 768px) {
+                    margin-bottom: 10px;
+                }
 
                 &:last-child {
                     margin-bottom: 0;

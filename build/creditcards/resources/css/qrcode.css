@@ -5,7 +5,7 @@
 }
     }
 /* Override some styles on tablet-sized screens to prevent tab headings from wrapping into new lines */
-@media (max-width: 1199px) and (min-width: 768px) {
+@media (max-width: 1200px) and (min-width: 768px) {
   body.login-page-container .login-tabs li {
     font-size: 12px !important;
     padding: 10px 8px;
@@ -53,30 +53,77 @@ body.login-page-container .login-tabs li {
         padding: 16px;
         background: #F2F7FD;
     }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body {
+            padding: 20px
+    }
+        }
 #qrcode-login .qrcode-login-body-inner {
         display: -webkit-box;
         display: -webkit-flex;
         display: -moz-box;
         display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: row;
+           -moz-box-orient: horizontal;
+           -moz-box-direction: normal;
+                flex-direction: row;
     }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner {
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: reverse;
+            -webkit-flex-direction: column-reverse;
+               -moz-box-orient: vertical;
+               -moz-box-direction: reverse;
+                    flex-direction: column-reverse;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+               -moz-box-align: center;
+                    align-items: center
+    }
+        }
 #qrcode-login .qrcode-login-body-inner .qrlb-col-1 {
             width: 59.367946%;
             padding-right: 12px;
         }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner .qrlb-col-1 {
+                margin-top: 20px;
+                padding-right: 0;
+                width: 100%
+        }
+            }
 #qrcode-login .qrcode-login-body-inner .qrlb-col-2 {
             width: 40.632054%;
         }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner .qrlb-col-2 {
+                width: 48.109966%
+        }
+            }
 #qrcode-login .qrcode-login-body-inner .qrlb-col-2-inner {
             background: #ffffff;
             padding: 16px;
             -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
                     box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
         }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner .qrlb-col-2-inner {
+                padding: 10px 20px
+        }
+            }
 #qrcode-login .qrcode-login-body-inner .qrlb-heading {
             font-size: 18px;
             font-weight: 600;
             margin: 0;
         }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner .qrlb-heading {
+                font-size: 14px
+        }
+            }
 #qrcode-login .qrcode-login-body-inner .qrlb-subheading {
             font-weight: 700;
             text-align: center;
@@ -86,9 +133,20 @@ body.login-page-container .login-tabs li {
             margin: 30px 0 16px;
             padding: 0 0 0 20px;
         }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner .qrlb-instructions {
+                margin: 10px 0 0;
+                font-size: 12px
+        }
+            }
 #qrcode-login .qrcode-login-body-inner .qrlb-instructions li {
                 margin-bottom: 16px;
             }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner .qrlb-instructions li {
+                    margin-bottom: 10px
+            }
+                }
 #qrcode-login .qrcode-login-body-inner .qrlb-instructions li:last-child {
                     margin-bottom: 0;
                 }
