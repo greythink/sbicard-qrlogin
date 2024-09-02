@@ -7,6 +7,21 @@
 
 
 
+/* Override some styles on tablet-sized screens to prevent tab headings from wrapping into new lines */
+@media (max-width: 1199px) and (min-width: 768px) {
+  body.login-page-container .login-tabs li {
+    font-size: 12px !important;
+    padding: 10px 8px;
+
+  }
+}
+/* Prevent undesired animation for certain properties when changing screen widths */
+body.login-page-container .login-tabs li {
+    transition: font-size 0s, padding 0s, line-height 0s !important;
+}
+
+
+
 /* QR Code login tab heading */
 #selectQrCodeSection {
     @media (max-width: 768px) {
