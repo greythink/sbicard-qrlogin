@@ -204,7 +204,10 @@
     <!--[if IE 8]>
         <script type="text/javascript" src="{{ assetBasePath }}/concat-js/ie.all.js"></script>
     <![endif]-->
-    {# <script type="text/javascript" src="{{ assetBasePath }}/min-js/custom.min.js?rel=a7a555b4de"></script> #}
+
+    <!-- custom.min.js contains the same code as login-page.js and overrides the changes made. Please see the 'Additional Important Note' section in README.md >
+        <script type="text/javascript" src="{{ assetBasePath }}/min-js/custom.min.js?rel=a7a555b4de"></script>
+    <!-->
 
     <input type="hidden" id="deliveryChargeWithGST"
         data-delivery-charge-with-gst="" />
