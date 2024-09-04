@@ -4,7 +4,7 @@ const assetResourcesPath = 'creditcards/resources'
 
 module.exports = function (config) {
     // Global data
-    config.addGlobalData('assetResourcesPath', '/' + assetResourcesPath);
+    config.addGlobalData('assetResourcesPath', assetResourcesPath);
 
     // Set output paths
     config.addPassthroughCopy({ 'src/assets/global': '.' });
