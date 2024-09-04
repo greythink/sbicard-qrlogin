@@ -293,7 +293,7 @@ $('#mobile-login #pin').focus(function () {
 
 ### Important Additional Note
 
-Both `/creditcards/resources/js/login-page.js` and `/creditcards/resources/min-js/custom.min.js` are currently loaded, which seem to have the same logic (except one is the minified version of another). Making changes in `login-page.js` will not work if `custom.min.js` is not removed. Only one of these files should be kept. It can lead to errors or unintended behaviour if the same JS is added twice, even if in different forms.
+Currently, both `/creditcards/resources/js/login-page.js` and `/creditcards/resources/min-js/custom.min.js` are loaded. Both files have a lot of code that is common. Making changes in `login-page.js` will not work if `custom.min.js` is not modified (the older duplicate code from `custom.min.js` will override the new changes made to `login-page.js`). It can lead to errors or unintended behaviour if the same JS is added twice, even if in different forms. Our recommendation is to clean up all the JS code and either collate all of it in one single file (ideal) or ensure that the code in both files is different and does not overlap.
 
 As an aside, the same issue is also noticed with cache related directives added in the `<head>` element. The same directives with the same or different values are added multiple times. For example:
 ```html
