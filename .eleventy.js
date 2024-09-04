@@ -1,22 +1,22 @@
-const assetBasePath = 'creditcards/resources'
+const assetResourcesPath = 'creditcards/resources'
 
 
 
 module.exports = function (config) {
     // Global data
-    config.addGlobalData('assetBasePath', '/' + assetBasePath);
+    config.addGlobalData('assetResourcesPath', '/' + assetResourcesPath);
 
     // Set output paths
     config.addPassthroughCopy({ 'src/assets/global': '.' });
-    config.addPassthroughCopy({ 'src/assets/favicon': assetBasePath + '/img' });
-    config.addPassthroughCopy({ 'src/assets/logo': assetBasePath + '/img' });
-    config.addPassthroughCopy({ 'src/assets/icons': assetBasePath + '/img' });
-    config.addPassthroughCopy({ 'src/assets/media': assetBasePath + '/img' });
-    config.addPassthroughCopy({ 'src/assets/css/ie.css': assetBasePath + '/css/ie.css' });
-    config.addPassthroughCopy({ 'src/assets/min-css': assetBasePath + '/min-css' });
-    config.addPassthroughCopy({ 'src/assets/js': assetBasePath + '/js' });
-    config.addPassthroughCopy({ 'src/assets/min-js': assetBasePath + '/min-js' });
-    config.addPassthroughCopy({ 'src/assets/concat-js': assetBasePath + '/concat-js' });
+    config.addPassthroughCopy({ 'src/assets/favicon': assetResourcesPath + '/img' });
+    config.addPassthroughCopy({ 'src/assets/logo': assetResourcesPath + '/img' });
+    config.addPassthroughCopy({ 'src/assets/icons': assetResourcesPath + '/img' });
+    config.addPassthroughCopy({ 'src/assets/media': assetResourcesPath + '/img' });
+    config.addPassthroughCopy({ 'src/assets/css/ie.css': assetResourcesPath + '/css/ie.css' });
+    config.addPassthroughCopy({ 'src/assets/min-css': assetResourcesPath + '/min-css' });
+    config.addPassthroughCopy({ 'src/assets/js': assetResourcesPath + '/js' });
+    config.addPassthroughCopy({ 'src/assets/min-js': assetResourcesPath + '/min-js' });
+    config.addPassthroughCopy({ 'src/assets/concat-js': assetResourcesPath + '/concat-js' });
 
     return {
       dir: {
