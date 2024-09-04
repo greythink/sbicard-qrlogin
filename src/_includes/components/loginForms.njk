@@ -110,7 +110,7 @@
                                     class="icon"
                                     id="login-mob-cross"
                                     style="display:none"
-                                    src="/creditcards/resources/img/field-error.png">
+                                    src="{{ assetResourcesPath }}/img/field-error.png">
                                 <input
                                     name="mobile"
                                     maxlength="14"
@@ -145,7 +145,7 @@
                                     class="icon"
                                     id="mobile-login-captcha-cross"
                                     style="display:none;"
-                                    src="/creditcards/resources/img/field-error.png">
+                                    src="{{ assetResourcesPath }}/img/field-error.png">
                                 <span
                                     id="mobile_captcha_code_error"
                                     style="display: none;"
@@ -161,7 +161,7 @@
                                         </div>
                                         <div class="captcha-refresh-btn-block">
                                             <img
-                                                src="/creditcards/resources/img/captch-refresh.png"
+                                                src="{{ assetResourcesPath }}/img/captch-refresh.png"
                                                 alt="refresh captcha"
                                                 onclick="refreshCaptcha('/creditcards/app/user/refresh-captcha',
                                                     'mobilelogin')">
@@ -181,7 +181,7 @@
                                         class="icon"
                                         id="login-primarycard-cross"
                                         style="display:none"
-                                        src="/creditcards/resources/img/field-error.png">
+                                        src="{{ assetResourcesPath }}/img/field-error.png">
                                     <input
                                         name="mob-cardLastFourDigits"
                                         class="sendOtp"
@@ -203,7 +203,7 @@
                                 <label class="active d-block">Verify your Authentication Image & Text
                                     to continue
                                     <span class="suggestion-hove-block position-relative">
-                                        <img src="/creditcards/resources/img/question.svg" alt="">
+                                        <img src="{{ assetResourcesPath }}/img/question.svg" alt="">
                                         <span class="image-sugestion-box">
                                             This is your Authentication Image & Text. It helps you in identifying
                                             genuine SBI Card website over fake / fraudulent ones. If the Image &
@@ -236,7 +236,7 @@
                                     class="icon"
                                     id="login-pin-cross"
                                     style="display:none"
-                                    src="/creditcards/resources/img/field-error.png">
+                                    src="{{ assetResourcesPath }}/img/field-error.png">
                                 <input
                                     name="mob-pin"
                                     class="sendOtp password-login otpEncrypt"
@@ -309,7 +309,7 @@
                                         class="icon"
                                         id="login-otp-cross"
                                         style="display:none"
-                                        src="/creditcards/resources/img/field-error.png">
+                                        src="{{ assetResourcesPath }}/img/field-error.png">
                                     <input
                                         name="mob-otp"
                                         class="sendOtp password-login otpEncrypt"
@@ -389,7 +389,7 @@
                                     class="icon"
                                     id="userid-login-captcha-cross"
                                     style="display:none;"
-                                    src="/creditcards/resources/img/field-error.png">
+                                    src="{{ assetResourcesPath }}/img/field-error.png">
                                 <span
                                     id="userid_captcha_code_error"
                                     style="display: none;"
@@ -405,7 +405,7 @@
                                         </div>
                                         <div class="captcha-refresh-btn-block">
                                             <img
-                                                src="/creditcards/resources/img/captch-refresh.png"
+                                                src="{{ assetResourcesPath }}/img/captch-refresh.png"
                                                 alt="refresh captcha"
                                                 onclick="refreshCaptcha('/creditcards/app/user/refresh-captcha',
                                                     'userlogin')">
@@ -420,7 +420,7 @@
                                 <label class="active d-block">Verify your Authentication Image & Text
                                     to continue
                                     <span class="suggestion-hove-block position-relative">
-                                        <img src="/creditcards/resources/img/question.svg" alt="">
+                                        <img src="{{ assetResourcesPath }}/img/question.svg" alt="">
                                         <span class="image-sugestion-box">
                                             This is your Authentication Image & Text. It helps you in identifying
                                             genuine SBI Card website over fake / fraudulent ones. If the Image &
@@ -520,7 +520,7 @@
                                         class="icon"
                                         id="login-userid-otp-cross"
                                         style="display:none"
-                                        src="/creditcards/resources/img/field-error.png">
+                                        src="{{ assetResourcesPath }}/img/field-error.png">
                                     <input
                                         name="otp"
                                         class="sendOtp password-login otpEncrypt"
@@ -586,7 +586,7 @@
                                     class="icon card-login-cross-icon"
                                     id="login-card-cross"
                                     style="display:none"
-                                    src="/creditcards/resources/img/field-error.png">
+                                    src="{{ assetResourcesPath }}/img/field-error.png">
                                 <input
                                     name="cnum"
                                     id="card_no"
@@ -598,7 +598,7 @@
                                     onkeypress='return event.charCode >= 48 && event.charCode <= 57'
                                     onkeyup="checkCardLoginBtn('cardNumber')"
                                     oninput="this.value = this.value.replace(/[^0-9-]/g, '');"/>
-                                <span class="password-icon pasword-icon-icon"><img src="/creditcards/resources/img/eye-closed.svg"> </span>
+                                <span class="password-icon pasword-icon-icon"><img src="{{ assetResourcesPath }}/img/eye-closed.svg"> </span>
                                 <label id="login-card-label" for="card_no">Primary Card Number</label>
                                 <span
                                     id="login-card-err"
@@ -622,7 +622,7 @@
                                     class="icon"
                                     id="card-login-captcha-cross"
                                     style="display:none;"
-                                    src="/creditcards/resources/img/field-error.png">
+                                    src="{{ assetResourcesPath }}/img/field-error.png">
                                 <span
                                     id="card_captcha_code_error"
                                     style="display: none;"
@@ -638,7 +638,7 @@
                                         </div>
                                         <div class="captcha-refresh-btn-block">
                                             <img
-                                                src="/creditcards/resources/img/captch-refresh.png"
+                                                src="{{ assetResourcesPath }}/img/captch-refresh.png"
                                                 alt="refresh captcha"
                                                 onclick="refreshCaptcha('/creditcards/app/user/refresh-captcha',
                                                     'cardlogin')">
@@ -653,7 +653,7 @@
                                 <label class="active d-block">Verify your Authentication Image & Text
                                     to continue
                                     <span class="suggestion-hove-block position-relative">
-                                        <img src="/creditcards/resources/img/question.svg" alt="">
+                                        <img src="{{ assetResourcesPath }}/img/question.svg" alt="">
                                         <span class="image-sugestion-box">
                                             This is your Authentication Image & Text. It helps you in identifying
                                             genuine SBI Card website over fake / fraudulent ones. If the Image &
@@ -689,12 +689,12 @@
                                     class="icon"
                                     id="dummy-login-calendar"
                                     style="top:17px; cursor:pointer"
-                                    src="/creditcards/resources/img/calendar.svg">
+                                    src="{{ assetResourcesPath }}/img/calendar.svg">
                                 <img
                                     class="icon icon1"
                                     id="login-dob-cross"
                                     style="display:none"
-                                    src="/creditcards/resources/img/field-error.png">
+                                    src="{{ assetResourcesPath }}/img/field-error.png">
                                 <input
                                     class="sendOtp dummy-card-dob-width100"
                                     id="dummy-card-dob"
@@ -718,7 +718,7 @@
                                     class="icon"
                                     id="login-calendar"
                                     style="top:17px; cursor:pointer"
-                                    src="/creditcards/resources/img/calendar.svg">
+                                    src="{{ assetResourcesPath }}/img/calendar.svg">
                                 <input
                                     name="dob"
                                     class="sendOtp date-field"
@@ -771,7 +771,7 @@
                                         class="icon"
                                         id="login-card-otp-cross"
                                         style="display:none"
-                                        src="/creditcards/resources/img/field-error.png">
+                                        src="{{ assetResourcesPath }}/img/field-error.png">
                                     <input
                                         name="card-otp"
                                         class="sendOtp password-login otpEncrypt"
@@ -825,7 +825,7 @@
                     id="ImageAboveFooterOnLoginPage">
                     <img
                         alt="Login-img"
-                        src="/creditcards/resources/img/digi-col-login.png"
+                        src="{{ assetResourcesPath }}/img/digi-col-login.png"
                         class="img-fluid mobile-view-above-footer-image"/>
                 </div>
             </div>
