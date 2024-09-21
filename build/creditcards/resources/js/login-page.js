@@ -239,6 +239,20 @@ function resetUserPassSection() {
 
 }
 
+function imageSwitcher() {
+    var $toggleId = '';
+    var $imageEl = '';
+    var toggleSelector = '';
+    $('#ImageAboveFooterOnLoginPage img').each(function (index, imageEl) {
+        $image = $(imageEl);
+        $image.removeClass('active');
+        toggleIdSelector = '#' + $image.data('toggleId');
+        if (toggleIdSelector && $(toggleIdSelector).hasClass('active')) {
+            $image.addClass('active');
+        }
+    });
+}
+
 function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
     $('#login-submit-error').css("display", "none");
     $('#login-submit-ajaxerror').css("display", "none");
@@ -297,6 +311,9 @@ function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
         resetMobileSection();
         resetCardSection();
     }
+
+    imageSwitcher();
+
     if ((endSessionExistMob == false || endSessionExistMob == undefined)
         && (endSessionExist == false || endSessionExist == undefined)) {
         $('#login-submit-error, #login-submit-ajaxerror').css('display', 'none');
@@ -2382,6 +2399,8 @@ $(document).ready(function () {
             $("#user-login").css("display", "none");
             $("#mobile-login").css("display", "block");
         }
+
+        imageSwitcher();
     }
 
     // Switch to mobile no. and OTP based login strategy on mobile devices

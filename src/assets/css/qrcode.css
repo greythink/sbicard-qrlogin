@@ -142,3 +142,14 @@ body.login-page-container .login-tabs li {
         }
     }
 }
+
+
+
+/* Image switching styling */
+#ImageAboveFooterOnLoginPage img {
+    display: none;
+
+    &.active {
+        display: block;
+    }
+}
