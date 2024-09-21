@@ -162,3 +162,19 @@ body.login-page-container .login-tabs li {
 #ImageAboveFooterOnLoginPage img.active {
         display: block;
     }
+/* Override image width styles */
+@media (min-width: 768px) {
+body.login-page-container .divide-form.order-first {
+        -webkit-box-sizing: border-box;
+           -moz-box-sizing: border-box;
+                box-sizing: border-box;
+        padding-right: 10px
+}
+    }
+@media (min-width: 768px) {
+body.login-page-container .divide-form.order-first img {
+            width: 100% !important;
+            height: auto !important;
+            padding: 0 !important
+    }
+        }

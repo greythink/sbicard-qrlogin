@@ -153,3 +153,21 @@ body.login-page-container .login-tabs li {
         display: block;
     }
 }
+
+
+
+/* Override image width styles */
+body.login-page-container .divide-form.order-first {
+    @media (min-width: 768px) {
+        box-sizing: border-box;
+        padding-right: 10px;
+    }
+
+    img {
+        @media (min-width: 768px) {
+            width: 100% !important;
+            height: auto !important;
+            padding: 0 !important;
+        }
+    }
+}
