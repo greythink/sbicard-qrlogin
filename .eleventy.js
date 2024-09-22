@@ -14,8 +14,10 @@ module.exports = function (config) {
     config.addPassthroughCopy({ 'src/assets/media': assetResourcesPath + '/img' });
     config.addPassthroughCopy({ 'src/assets/css/ie.css': assetResourcesPath + '/css/ie.css' });
     config.addPassthroughCopy({ 'src/assets/min-css': assetResourcesPath + '/min-css' });
+    config.addPassthroughCopy({ 'src/assets/unminified-css': assetResourcesPath + '/unminified-css' });
     config.addPassthroughCopy({ 'src/assets/js': assetResourcesPath + '/js' });
     config.addPassthroughCopy({ 'src/assets/min-js': assetResourcesPath + '/min-js' });
+    config.addPassthroughCopy({ 'src/assets/unminified-js': assetResourcesPath + '/unminified-js' });
     config.addPassthroughCopy({ 'src/assets/concat-js': assetResourcesPath + '/concat-js' });
 
     return {
