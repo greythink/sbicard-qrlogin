@@ -111,7 +111,7 @@ function setAnalyticsPost(linkname,offerName) {
 	s.linkTrackEvents = 'None';
 	s.prop4 = pagename.replace(/\s+/g, '').toLowerCase();
 	s.prop6 = linkname.replace(/\s+/g, '').toLowerCase();
-	if (linkname == 'Print' || linkname == 'Download' || linkname == 'Download Catalog' || linkname == 'Download Catalogue' || linkname == 'Reward-Catalogue' || linkname == 'à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡') {
+	if (linkname == 'Print' || linkname == 'Download' || linkname == 'Download Catalog' || linkname == 'Download Catalogue' || linkname == 'Reward-Catalogue' || linkname == 'डाउनलोड') {
 		s.tl(this, 'd', pagename.replace(/\s+/g, '').toLowerCase()
 				+ ':download_' + formName.replace(/\s+/g, '').toLowerCase(),
 				null, 'navigate');
@@ -132,7 +132,7 @@ function setAnalyticsPost(linkname,offerName) {
 		s.linkTrackEvents = 'None';
 		s.prop4 = pagename.replace(/\s+/g, '').toLowerCase();
 		s.prop6 = linkname.replace(/\s+/g, '').toLowerCase();
-		if (linkname == 'Print' || linkname == 'Download' || linkname == 'Download Catalog' || linkname == 'Download Catalogue' || linkname == 'Reward-Catalogue' || linkname == 'à¤¡à¤¾à¤‰à¤¨à¤²à¥‹à¤¡') {
+		if (linkname == 'Print' || linkname == 'Download' || linkname == 'Download Catalog' || linkname == 'Download Catalogue' || linkname == 'Reward-Catalogue' || linkname == 'डाउनलोड') {
 			s.tl(this, 'd', pagename.replace(/\s+/g, '').toLowerCase()
 					+ ':download_' + formName.replace(/\s+/g, '').toLowerCase(),
 					null, 'navigate');
@@ -184,7 +184,7 @@ function setAnalyticsForm(linkname) {
 	s.eVar1 = userId;
 	s.eVar16=journey_link.replace(/\s+/g, '').toLowerCase()+'form';
 
-	if(linkname ==Â "Go:Advanced" || linkname ==Â "Go:Quick" || linkname == "à¤œà¤¾à¤¯à¥‡à¤‚:à¤¤à¥à¤°à¤‚à¤¤" || linkname == "à¤œà¤¾à¤¯à¥‡à¤‚:à¤…à¤—à¥à¤°à¤¿à¤®")
+	if(linkname == "Go:Advanced" || linkname == "Go:Quick" || linkname == "जायें:तुरंत" || linkname == "जायें:अग्रिम")
 		{
 		s.events = 'event29, event11, event30';
 		}
@@ -208,7 +208,7 @@ function setAnalyticsOffer(linkname) {
 	var omni_role = $(".b2b_omniture_role").val();
 	if(omni_role == "USER"){
 	var checkedValues = $('.styled-checkbox:checked').map(function() {
-Â Â Â Â return this.value;
+    return this.value;
 	}).get();
 	setPageName();
 	s.pageName = pagename.replace(/\s+/g, '').toLowerCase();
@@ -258,18 +258,18 @@ function setAnalyticsRewards(linkname, giftvoucher) {
 		s.linkTrackEvents='event27'
 		s.events='event27';
 		}
-	if (linkname == 'Redeem Now' || linkname == 'Add to Cart' || linkname == 'à¤•à¤¾à¤°à¥à¤Ÿ à¤®à¥‡à¤‚ à¤œà¥‹à¤¡à¥‡à¤‚' || linkname == 'à¤…à¤­à¥€ à¤°à¤¿à¤¡à¥€à¤® à¤•à¤°à¥‡à¤‚')
+	if (linkname == 'Redeem Now' || linkname == 'Add to Cart' || linkname == 'कार्ट में जोडें' || linkname == 'अभी रिडीम करें')
 		{
 		s.linkTrackEvents='scAdd'
 		s.events='scAdd';
 		}
-	if (linkname == 'Clear Cart' || linkname == 'Remove Item' || linkname == 'à¤•à¤¾à¤°à¥à¤Ÿ à¤–à¤¾à¤²à¥€ à¤•à¤°à¥‡à¤‚')
+	if (linkname == 'Clear Cart' || linkname == 'Remove Item' || linkname == 'कार्ट खाली करें')
 	{
 	s.linkTrackEvents='scRemove'
 	s.events='scRemove';
 	}
 
-	if (linkname == 'Place Order' || linkname == 'à¤‘à¤°à¥à¤¡à¤° à¤•à¤°à¥‡à¤‚')
+	if (linkname == 'Place Order' || linkname == 'ऑर्डर करें')
 	{
 	s.linkTrackEvents='scCheckout'
 	s.events='scCheckout';
@@ -304,12 +304,12 @@ function clearShoppingData(shoppingData){
 function setAnalyticsApp(pagename,linkname) {
 	var omni_role = $(".b2b_omniture_role").val();
 	if(omni_role == "USER"){
-	Â Â s.pageName=pagename;
-	Â Â s.linkTrackVars='events,prop4,prop6';
-	Â Â s.linkTrackEvents='None';
-	Â Â s.prop4=pagename;
-	Â Â s.prop6=linkname.replace(/\s+/g, '').toLowerCase();
-	Â Â s.tl(this,'e',pagename+':'+linkname.replace(/\s+/g, '').toLowerCase());
+	  s.pageName=pagename;
+	  s.linkTrackVars='events,prop4,prop6';
+	  s.linkTrackEvents='None';
+	  s.prop4=pagename;
+	  s.prop6=linkname.replace(/\s+/g, '').toLowerCase();
+	  s.tl(this,'e',pagename+':'+linkname.replace(/\s+/g, '').toLowerCase());
 	}
 }
 /*Omniture Addon Kyc :Tanya*/
@@ -621,50 +621,50 @@ function setAnalyticsReasonAndButton(button, reason, url) {
 
 //kyc renewal changes start
 function setAnalyticsKYCRenewal(button, action) {
-Â Â Â  var url = window.location.href;
-Â Â Â  s.pageName='sbi-card:postlogin:myaccount:kycrenewal';
-Â Â Â  s.channel='MyAccount';
-Â Â Â  s.prop1=url;
-Â Â Â  s.prop6= button;
-Â Â Â  s.prop11=action;
-Â Â Â  s.eVar2=url;
-Â Â Â  var s_code=s.t();if(s_code)document.write(s_code)//-->
+    var url = window.location.href;
+    s.pageName='sbi-card:postlogin:myaccount:kycrenewal';
+    s.channel='MyAccount';
+    s.prop1=url;
+    s.prop6= button;
+    s.prop11=action;
+    s.eVar2=url;
+    var s_code=s.t();if(s_code)document.write(s_code)//-->
 
 }
 function setAnalyticsKYCConfirmation(button,action) {
-Â Â Â  var url = window.location.href;
-Â Â Â  s.pageName='sbi-card:postlogin:myaccount:kycrenewal:confirmation';
-Â Â Â  s.channel='MyAccount';
-Â Â Â  s.prop1=url;
-Â Â Â  s.prop6=button;
-Â Â Â  s.prop11=action;
-Â Â Â  s.eVar2=url;
-Â Â Â  var s_code=s.t();if(s_code)document.write(s_code)//-->Â Â Â Â
+    var url = window.location.href;
+    s.pageName='sbi-card:postlogin:myaccount:kycrenewal:confirmation';
+    s.channel='MyAccount';
+    s.prop1=url;
+    s.prop6=button;
+    s.prop11=action;
+    s.eVar2=url;
+    var s_code=s.t();if(s_code)document.write(s_code)//-->    
 }
 //kyc renewal change ends
 
 //Anti-phishing omniture code implemantation start
 function setAnalyticsAntiPhishingAuthImageSelection(action,button) {
-	Â Â Â  var url = window.location.href;
-	Â Â Â  s.pageName='sbi-card:postlogin:authenticationimage&text';
-	Â Â Â  s.channel='MyAccount';
-	Â Â Â  s.prop1=url;
-	Â Â Â  s.prop6=action;
-	Â Â Â  s.prop11=button;
-	Â Â Â  s.eVar2=url;
-	Â Â Â  var s_code=s.t();if(s_code)document.write(s_code)//-->Â Â Â Â
+	    var url = window.location.href;
+	    s.pageName='sbi-card:postlogin:authenticationimage&text';
+	    s.channel='MyAccount';
+	    s.prop1=url;
+	    s.prop6=action;
+	    s.prop11=button;
+	    s.eVar2=url;
+	    var s_code=s.t();if(s_code)document.write(s_code)//-->    
 	}
 
 	//Encash and Encash Inline Revamp start
 function setAnalyticsEncashJourney(var1,var2) {
-Â Â Â  var url = window.location.href;
-Â Â Â  s.pageName='sbi-card:postlogin:encash';
-Â Â Â  s.channel='EMI&More:encash';
-Â Â Â  s.prop1=url;
-Â Â Â  s.prop6=var1;
-Â Â Â  s.prop11=var2;
-Â Â Â  s.eVar2=url;
-Â Â Â  var s_code=s.t();if(s_code)document.write(s_code)//-->Â Â Â Â
+    var url = window.location.href;
+    s.pageName='sbi-card:postlogin:encash';
+    s.channel='EMI&More:encash';
+    s.prop1=url;
+    s.prop6=var1;
+    s.prop11=var2;
+    s.eVar2=url;
+    var s_code=s.t();if(s_code)document.write(s_code)//-->    
 }
 //Encash and Encash Inline Revamp End
 
@@ -678,7 +678,7 @@ function setAnalyticsPostLoginOffer(action,button,clickUrl) {
 	s.prop11='sbi-card:postlogin:dashboard_offer_selection_'+ action;
 	s.eVar2= clickUrl ;
 	var s_code=s.t();if(s_code)document.write(s_code)//-->
-Â Â Â
+   
 	}
 
 //Travel Card Phase 2 Omniture changes start
