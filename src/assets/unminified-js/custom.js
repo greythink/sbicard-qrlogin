@@ -16283,44 +16283,47 @@ function resetUserPassSection() {
         $(".keyboard .numbers .mob").removeClass("disabled"),
         (userResendOTPCount = 0);
 }
-function toggleMobileOrUserOrCard(type) {
-    $("#login-submit-error").css("display", "none"),
-        $("#login-submit-ajaxerror").css("display", "none"),
-        $(".main-wrap.campaign-wrap.no-border.login-page-loggedout").css("display", "none"),
-        "card" === type
-            ? ($("#selectCardSection").addClass("active"),
-                $("#selectUserSection").removeClass("active"),
-                $("#selectMobileSection").removeClass("active"),
-                $("#card-login").css("display", "block"),
-                $("#mobile-login").css("display", "none"),
-                $("#user-login").css("display", "none"),
-                resetMobileSection(),
-                resetUserPassSection(),
-                resetCardSection())
-            : "mobile" === type
-                ? ($("#selectMobileSection").addClass("active"),
-                    $("#selectCardSection").removeClass("active"),
-                    $("#selectUserSection").removeClass("active"),
-                    $("#card-login").css("display", "none"),
-                    $("#user-login").css("display", "none"),
-                    $("#mobile-login").css("display", "block"),
-                    resetMobileSection(),
-                    resetUserPassSection(),
-                    resetCardSection())
-                : "user" === type &&
-                ($("#selectUserSection").addClass("active"),
-                    $("#selectMobileSection").removeClass("active"),
-                    $("#selectCardSection").removeClass("active"),
-                    $("#user-login").css("display", "block"),
-                    $("#card-login").css("display", "none"),
-                    $("#mobile-login").css("display", "none"),
-                    resetUserPassSection(),
-                    resetMobileSection(),
-                    resetCardSection()),
-        (0 != endSessionExistMob && void 0 != endSessionExistMob) || (0 != endSessionExist && void 0 != endSessionExist)
-            ? ((endSessionExist = !1), (endSessionExistMob = !1))
-            : $("#login-submit-error, #login-submit-ajaxerror").css("display", "none");
-}
+
+// Removing redundant code already present in login-page.js
+
+// function toggleMobileOrUserOrCard(type) {
+//     $("#login-submit-error").css("display", "none"),
+//         $("#login-submit-ajaxerror").css("display", "none"),
+//         $(".main-wrap.campaign-wrap.no-border.login-page-loggedout").css("display", "none"),
+//         "card" === type
+//             ? ($("#selectCardSection").addClass("active"),
+//                 $("#selectUserSection").removeClass("active"),
+//                 $("#selectMobileSection").removeClass("active"),
+//                 $("#card-login").css("display", "block"),
+//                 $("#mobile-login").css("display", "none"),
+//                 $("#user-login").css("display", "none"),
+//                 resetMobileSection(),
+//                 resetUserPassSection(),
+//                 resetCardSection())
+//             : "mobile" === type
+//                 ? ($("#selectMobileSection").addClass("active"),
+//                     $("#selectCardSection").removeClass("active"),
+//                     $("#selectUserSection").removeClass("active"),
+//                     $("#card-login").css("display", "none"),
+//                     $("#user-login").css("display", "none"),
+//                     $("#mobile-login").css("display", "block"),
+//                     resetMobileSection(),
+//                     resetUserPassSection(),
+//                     resetCardSection())
+//                 : "user" === type &&
+//                 ($("#selectUserSection").addClass("active"),
+//                     $("#selectMobileSection").removeClass("active"),
+//                     $("#selectCardSection").removeClass("active"),
+//                     $("#user-login").css("display", "block"),
+//                     $("#card-login").css("display", "none"),
+//                     $("#mobile-login").css("display", "none"),
+//                     resetUserPassSection(),
+//                     resetMobileSection(),
+//                     resetCardSection()),
+//         (0 != endSessionExistMob && void 0 != endSessionExistMob) || (0 != endSessionExist && void 0 != endSessionExist)
+//             ? ((endSessionExist = !1), (endSessionExistMob = !1))
+//             : $("#login-submit-error, #login-submit-ajaxerror").css("display", "none");
+// }
 function resendOtpForMobLogin(otpGenURL) {
     if (!(resendOTPCountMob > 5)) {
         $("#moblogin").css("pointer-events", "none");
@@ -36890,33 +36893,36 @@ $(document).ready(function () {
                 $("#card-login #card-otp").addClass("invalid"),
                 $("#card-login #login-card-otp-cross").css("display", "block"))
             : "014" == status_code && resetCardSection(),
-        "LOGIN_STRATEGY_CARD_AND_DOB" == loginStrategy
-            ? ($("#selectCardSection").addClass("active"),
-                $("#selectUserSection").removeClass("active"),
-                $("#selectMobileSection").removeClass("active"),
-                $("#card-login").css("display", "block"),
-                $("#mobile-login").css("display", "none"),
-                $("#user-login").css("display", "none"))
-            : "LOGIN_STRATEGY_USER_AND_PWD" == loginStrategy
-                ? ($("#selectUserSection").addClass("active"),
-                    $("#selectMobileSection").removeClass("active"),
-                    $("#selectCardSection").removeClass("active"),
-                    $("#user-login").css("display", "block"),
-                    $("#card-login").css("display", "none"),
-                    $("#mobile-login").css("display", "none"))
-                : endSessionExist
-                    ? ($("#selectCardSection").addClass("active"),
-                        $("#selectUserSection").removeClass("active"),
-                        $("#selectMobileSection").removeClass("active"),
-                        $("#card-login").css("display", "block"),
-                        $("#mobile-login").css("display", "none"),
-                        $("#user-login").css("display", "none"))
-                    : ($("#selectMobileSection").addClass("active"),
-                        $("#selectCardSection").removeClass("active"),
-                        $("#selectUserSection").removeClass("active"),
-                        $("#card-login").css("display", "none"),
-                        $("#user-login").css("display", "none"),
-                        $("#mobile-login").css("display", "block")),
+
+            // Removing redundant code already present in login-page.js
+
+            // "LOGIN_STRATEGY_CARD_AND_DOB" == loginStrategy
+        //     ? ($("#selectCardSection").addClass("active"),
+        //         $("#selectUserSection").removeClass("active"),
+        //         $("#selectMobileSection").removeClass("active"),
+        //         $("#card-login").css("display", "block"),
+        //         $("#mobile-login").css("display", "none"),
+        //         $("#user-login").css("display", "none"))
+        //     : "LOGIN_STRATEGY_USER_AND_PWD" == loginStrategy
+        //         ? ($("#selectUserSection").addClass("active"),
+        //             $("#selectMobileSection").removeClass("active"),
+        //             $("#selectCardSection").removeClass("active"),
+        //             $("#user-login").css("display", "block"),
+        //             $("#card-login").css("display", "none"),
+        //             $("#mobile-login").css("display", "none"))
+        //         : endSessionExist
+        //             ? ($("#selectCardSection").addClass("active"),
+        //                 $("#selectUserSection").removeClass("active"),
+        //                 $("#selectMobileSection").removeClass("active"),
+        //                 $("#card-login").css("display", "block"),
+        //                 $("#mobile-login").css("display", "none"),
+        //                 $("#user-login").css("display", "none"))
+        //             : ($("#selectMobileSection").addClass("active"),
+        //                 $("#selectCardSection").removeClass("active"),
+        //                 $("#selectUserSection").removeClass("active"),
+        //                 $("#card-login").css("display", "none"),
+        //                 $("#user-login").css("display", "none"),
+        //                 $("#mobile-login").css("display", "block")),
         $("#mobile-login #pin").focus(function () {
             validateImageCheckboxcheckedOrNot("mobilelogin");
         }),

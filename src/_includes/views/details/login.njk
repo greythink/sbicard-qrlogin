@@ -205,9 +205,10 @@
         <script type="text/javascript" src="{{ assetResourcesPath }}/concat-js/ie.all.js"></script>
     <![endif]-->
 
-    <!-- custom.min.js contains the same code as login-page.js and overrides the changes made. Please see the 'Additional Important Note' section in README.md >
+    <!-- A lot of the code contained in custom.min.js is the same code as login-page.js and overrides the changes made. Please see the 'Additional Important Note' section in README.md. The conflicting code has been commented out in custom.js (unminified version of custom.min.js). Please clean up the JS files so that there is no code overlap.
         <script type="text/javascript" src="{{ assetResourcesPath }}/min-js/custom.min.js?rel=a7a555b4de"></script>
     <!-->
+    <script type="text/javascript" src="{{ assetResourcesPath }}/unminified-js/custom.js?rel=a7a555b4de"></script>
 
     <input type="hidden" id="deliveryChargeWithGST"
         data-delivery-charge-with-gst="" />
