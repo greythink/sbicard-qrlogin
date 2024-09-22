@@ -307,4 +307,6 @@ As an aside, the same issue is also noticed with cache related directives added 
 <meta http-equiv="Expires" content="0" />
 ```
 
+Please also uncomment the line `<script type="text/javascript" src="scdDrEg639ytbi.js?single"></script>` from home page (`index.html`). The script was commented out as it was timing out on non-production domains and creating a problem during development. Please re-add the script during production when the domain is sbicard.com.
+
 
