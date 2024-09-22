@@ -156,6 +156,17 @@ body.login-page-container .login-tabs li {
 
 
 
+/* Prevent webpage from scrolling horizontally on Safari desktop */
+.micro-logo-head {
+    box-sizing: border-box;
+}
+/* Prevent webpage from scrolling horizontally on Safari mobile */
+.container {
+    box-sizing: border-box;
+}
+
+
+
 /* Override image width styles */
 body.login-page-container .divide-form.order-first {
     @media (min-width: 768px) {
