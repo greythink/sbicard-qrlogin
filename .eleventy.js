@@ -19,6 +19,7 @@ module.exports = function (config) {
     config.addPassthroughCopy({ 'src/assets/min-js': assetResourcesPath + '/min-js' });
     config.addPassthroughCopy({ 'src/assets/unminified-js': assetResourcesPath + '/unminified-js' });
     config.addPassthroughCopy({ 'src/assets/concat-js': assetResourcesPath + '/concat-js' });
+    config.addPassthroughCopy('src/robots.txt');
 
     return {
       dir: {
