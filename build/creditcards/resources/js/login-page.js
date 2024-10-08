@@ -2411,6 +2411,23 @@ $(document).ready(function () {
     }
     loginStrategyInit();
 
+    // Deactivate QC code when timer ends
+    function qrTimer() {
+        var $timerEl = $('#qrlb-timer');
+        var countDownLimit = 30;
+        var count = countDownLimit;
+
+        var timerFx = setInterval(function () {
+            count--;
+            $timerEl.text(count < 10 ? '0' + count : count );
+
+            if (count == 0) {
+                clearInterval(timerFx);
+            }
+        }, 1000);
+    }
+    qrTimer();
+
     $('#mobile-login #pin').focus(function () {
         validateImageCheckboxcheckedOrNot('mobilelogin');
     });
