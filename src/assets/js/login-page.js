@@ -2414,11 +2414,12 @@ $(document).ready(function () {
     // Deactivate QC code when timer ends
     function qrTimer() {
         var $timerEl = $('#qrlb-timer');
+        var $qrCodeBodyContainer = $('#qrcode-login');
         var $timerRefreshBtn = $('#qrlb-timer-refresh-btn');
-        var $blurTargetList = $('[data-blur-target]');
         var countDownLimit = 30;
 
         var startCountDown = function () {
+            $qrCodeBodyContainer.addClass('qrcode-timer-active');
             $timerEl.text(countDownLimit < 10 ? '0' + countDownLimit : countDownLimit );
             var count = countDownLimit;
 
@@ -2428,16 +2429,16 @@ $(document).ready(function () {
 
                 if (count == 0) {
                     clearInterval(timerFx);
-                    $blurTargetList.toggleClass('qrlb-blurred');
-                    $timerRefreshBtn.toggleClass('qrlb-show-btn');
+                    $qrCodeBodyContainer.toggleClass('qrcode-timer-active');
+                    $qrCodeBodyContainer.toggleClass('qrcode-timer-stopped');
                 }
             }, 1000);
         }
 
         startCountDown();
         $timerRefreshBtn.on('click', function () {
-            $timerRefreshBtn.toggleClass('qrlb-show-btn');
-            $blurTargetList.toggleClass('qrlb-blurred');
+            $qrCodeBodyContainer.toggleClass('qrcode-timer-active');
+            $qrCodeBodyContainer.toggleClass('qrcode-timer-stopped');
             startCountDown();
         });
     }

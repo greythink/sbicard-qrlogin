@@ -174,8 +174,6 @@ body.login-page-container .login-tabs li.active::after {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
-                border-radius: 12px;
             }
 
             .qrlb-refresh-btn {
@@ -188,10 +186,6 @@ body.login-page-container .login-tabs li.active::after {
                 height: 71.428571%;
                 border-radius: 9999px;
                 background-color: #DAF5FF;
-
-                &.qrlb-show-btn {
-                    display: block;
-                }
 
                 .qrlb-refresh-btn-inner {
                     padding: 16px 20px;
@@ -234,8 +228,25 @@ body.login-page-container .login-tabs li.active::after {
             color: #00b1f2;
             font-variant-numeric: tabular-nums;
         }
+    }
 
-        .qrlb-blurred {
+    &.qrcode-timer-active {
+        .qrlb-refresh-btn {
+            display: none;
+        }
+
+        .qrcode-aspect-ratio-box {
+            /* Show shadow only when the QR code is visible */
+            /* (Workaround to prevent weird outline outside blurred image) */
+            box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+        }
+    }
+    &.qrcode-timer-stopped {
+        .qrlb-refresh-btn {
+            display: block !important;
+        }
+
+        [data-blur-target] {
             filter: blur(4px);
         }
     }

@@ -192,9 +192,6 @@ body.login-page-container .login-tabs li.active::after {
                 left: 0;
                 width: 100%;
                 height: 100%;
-                -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
-                        box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
-                border-radius: 12px;
             }
 #qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn {
                 display: none;
@@ -210,9 +207,6 @@ body.login-page-container .login-tabs li.active::after {
                 border-radius: 9999px;
                 background-color: #DAF5FF;
             }
-#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn.qrlb-show-btn {
-                    display: block;
-                }
 #qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn .qrlb-refresh-btn-inner {
                     padding: 16px 20px;
                     display: -webkit-box;
@@ -267,7 +261,19 @@ body.login-page-container .login-tabs li.active::after {
             color: #00b1f2;
             font-variant-numeric: tabular-nums;
         }
-#qrcode-login .qrcode-login-body-inner .qrlb-blurred {
+#qrcode-login.qrcode-timer-active .qrlb-refresh-btn {
+            display: none;
+        }
+#qrcode-login.qrcode-timer-active .qrcode-aspect-ratio-box {
+            /* Show shadow only when the QR code is visible */
+            /* (Workaround to prevent weird outline outside blurred image) */
+            -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+                    box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+        }
+#qrcode-login.qrcode-timer-stopped .qrlb-refresh-btn {
+            display: block !important;
+        }
+#qrcode-login.qrcode-timer-stopped [data-blur-target] {
             -webkit-filter: blur(4px);
                     filter: blur(4px);
         }
