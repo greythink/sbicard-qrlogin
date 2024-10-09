@@ -22,6 +22,36 @@ body.login-page-container .login-tabs li {
 
 
 
+/* Tab styling changes */
+body.login-page-container .login-tabs {
+    border-bottom: none;
+}
+body.login-page-container .login-tabs li {
+    background-color: rgba(246, 246, 246, 0.85);
+    box-shadow: 0px 1px 10px 0px rgba(138, 138, 150, 0.25);
+    transition: all .5s;
+}
+body.login-page-container .login-tabs li.active {
+    background-color: #FFFFFF;
+    box-shadow: 0px 1px 20px 0px rgba(138, 138, 150, 0.25);
+}
+body.login-page-container .login-tabs li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #E5ECF4;
+    left: 0;
+    transition: all .5s;
+}
+body.login-page-container .login-tabs li.active::after {
+    height: 2px;
+    background: #00B1F2;
+}
+
+
+
 /* QR Code login tab heading */
 #selectQrCodeSection {
     @media (max-width: 768px) {
