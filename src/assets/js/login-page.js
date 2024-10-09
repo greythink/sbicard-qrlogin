@@ -253,6 +253,38 @@ function imageSwitcher() {
     });
 }
 
+// Deactivate QC code when timer ends
+function qrTimer() {
+    var $timerEl = $('#qrlb-timer');
+    var $qrCodeBodyContainer = $('#qrcode-login');
+    var $timerRefreshBtn = $('#qrlb-timer-refresh-btn');
+    var countDownLimit = 30;
+
+    var startCountDown = function () {
+        $qrCodeBodyContainer.addClass('qrcode-timer-active');
+        $timerEl.text(countDownLimit < 10 ? '0' + countDownLimit : countDownLimit );
+        var count = countDownLimit;
+
+        var timerFx = setInterval(function () {
+            count--;
+            $timerEl.text(count < 10 ? '0' + count : count );
+
+            if (count == 0) {
+                clearInterval(timerFx);
+                $qrCodeBodyContainer.toggleClass('qrcode-timer-active');
+                $qrCodeBodyContainer.toggleClass('qrcode-timer-stopped');
+            }
+        }, 1000);
+    }
+
+    startCountDown();
+    $timerRefreshBtn.on('click', function () {
+        $qrCodeBodyContainer.toggleClass('qrcode-timer-active');
+        $qrCodeBodyContainer.toggleClass('qrcode-timer-stopped');
+        startCountDown();
+    });
+}
+
 function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
     $('#login-submit-error').css("display", "none");
     $('#login-submit-ajaxerror').css("display", "none");
@@ -270,6 +302,9 @@ function toggleMobileOrUserOrCard(type) {  // for toggling the tabs
         resetMobileSection();
         resetUserPassSection();
         resetCardSection();
+
+        // Start QR Code timer
+        qrTimer();
 
     } else if (type === "card") {
         $('#selectCardSection').addClass('active');
@@ -2359,6 +2394,9 @@ $(document).ready(function () {
             $("#card-login").css("display", "none");
             $("#mobile-login").css("display", "none");
             $("#user-login").css("display", "none");
+
+            // Start QR Code timer
+            qrTimer();
         } else if (loginStrategy == 'LOGIN_STRATEGY_CARD_AND_DOB') {
             // $('#selectCardSection').trigger('click');
             $('#selectCardSection').addClass('active');
@@ -2410,39 +2448,6 @@ $(document).ready(function () {
         loginStrategy = mobileLoginStrategy;
     }
     loginStrategyInit();
-
-    // Deactivate QC code when timer ends
-    function qrTimer() {
-        var $timerEl = $('#qrlb-timer');
-        var $qrCodeBodyContainer = $('#qrcode-login');
-        var $timerRefreshBtn = $('#qrlb-timer-refresh-btn');
-        var countDownLimit = 30;
-
-        var startCountDown = function () {
-            $qrCodeBodyContainer.addClass('qrcode-timer-active');
-            $timerEl.text(countDownLimit < 10 ? '0' + countDownLimit : countDownLimit );
-            var count = countDownLimit;
-
-            var timerFx = setInterval(function () {
-                count--;
-                $timerEl.text(count < 10 ? '0' + count : count );
-
-                if (count == 0) {
-                    clearInterval(timerFx);
-                    $qrCodeBodyContainer.toggleClass('qrcode-timer-active');
-                    $qrCodeBodyContainer.toggleClass('qrcode-timer-stopped');
-                }
-            }, 1000);
-        }
-
-        startCountDown();
-        $timerRefreshBtn.on('click', function () {
-            $qrCodeBodyContainer.toggleClass('qrcode-timer-active');
-            $qrCodeBodyContainer.toggleClass('qrcode-timer-stopped');
-            startCountDown();
-        });
-    }
-    qrTimer();
 
     $('#mobile-login #pin').focus(function () {
         validateImageCheckboxcheckedOrNot('mobilelogin');
