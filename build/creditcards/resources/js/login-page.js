@@ -2416,8 +2416,10 @@ $(document).ready(function () {
         var $timerEl = $('#qrlb-timer');
         var $timerRefreshBtn = $('#qrlb-timer-refresh-btn');
         var $blurTargetList = $('[data-blur-target]');
+        var countDownLimit = 30;
 
-        var startCountDown = function (countDownLimit = 30) {
+        var startCountDown = function () {
+            $timerEl.text(countDownLimit < 10 ? '0' + countDownLimit : countDownLimit );
             var count = countDownLimit;
 
             var timerFx = setInterval(function () {
