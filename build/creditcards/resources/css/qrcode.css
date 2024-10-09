@@ -151,8 +151,6 @@ body.login-page-container .login-tabs li {
             height: 0;
             overflow: hidden;
             padding-top: 100%;
-            -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
-                    box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
             border-radius: 12px;
         }
 #qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrcode-aspect-ratio-box-inner {
@@ -161,6 +159,9 @@ body.login-page-container .login-tabs li {
                 left: 0;
                 width: 100%;
                 height: 100%;
+                -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+                        box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
+                border-radius: 12px;
             }
 #qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn {
                 display: none;
@@ -233,8 +234,8 @@ body.login-page-container .login-tabs li {
             color: #00b1f2;
         }
 #qrcode-login .qrcode-login-body-inner .qrlb-blurred {
-            -webkit-filter: blur(5px);
-                    filter: blur(5px);
+            -webkit-filter: blur(4px);
+                    filter: blur(4px);
         }
 /* Image switching styling */
 #ImageAboveFooterOnLoginPage img {
