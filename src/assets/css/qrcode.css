@@ -171,12 +171,21 @@ body.login-page-container .login-tabs li {
                     justify-content: center;
                     align-items: center;
 
+                    @media (max-width: 1200px) and (min-width: 768px) {
+                        padding: 10px;
+                    }
+
                     .qrlb-refresh-btn-icon {
                         background-image: url('../img/refresh.svg');
                         background-size: cover;
                         height: 22px;
                         width: 22px;
                         margin-bottom: 10px;
+
+                        @media (max-width: 1200px) and (min-width: 768px) {
+                            height: 16px;
+                            width: 16px;
+                        }
                     }
                     .qrlb-refresh-btn-text {
                         font-weight: 700;

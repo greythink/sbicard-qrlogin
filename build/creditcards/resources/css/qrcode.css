@@ -202,6 +202,11 @@ body.login-page-container .login-tabs li {
                        -moz-box-align: center;
                             align-items: center;
                 }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn .qrlb-refresh-btn-inner {
+                        padding: 10px
+                }
+                    }
 #qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn .qrlb-refresh-btn-inner .qrlb-refresh-btn-icon {
                         background-image: url('../img/refresh.svg');
                         -webkit-background-size: cover;
@@ -210,6 +215,12 @@ body.login-page-container .login-tabs li {
                         width: 22px;
                         margin-bottom: 10px;
                     }
+@media (max-width: 1200px) and (min-width: 768px) {
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn .qrlb-refresh-btn-inner .qrlb-refresh-btn-icon {
+                            height: 16px;
+                            width: 16px
+                    }
+                        }
 #qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn .qrlb-refresh-btn-inner .qrlb-refresh-btn-text {
                         font-weight: 700;
                     }
