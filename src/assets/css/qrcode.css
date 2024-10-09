@@ -11,7 +11,7 @@
 @media (max-width: 1200px) and (min-width: 768px) {
   body.login-page-container .login-tabs li {
     font-size: 12px !important;
-    padding: 10px 8px;
+    padding: 10px 7px;
 
   }
 }
