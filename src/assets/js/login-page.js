@@ -2414,17 +2414,30 @@ $(document).ready(function () {
     // Deactivate QC code when timer ends
     function qrTimer() {
         var $timerEl = $('#qrlb-timer');
-        var countDownLimit = 30;
-        var count = countDownLimit;
+        var $timerRefreshBtn = $('#qrlb-timer-refresh-btn');
+        var $blurTargetList = $('[data-blur-target]');
 
-        var timerFx = setInterval(function () {
-            count--;
-            $timerEl.text(count < 10 ? '0' + count : count );
+        var startCountDown = function (countDownLimit = 30) {
+            var count = countDownLimit;
 
-            if (count == 0) {
-                clearInterval(timerFx);
-            }
-        }, 1000);
+            var timerFx = setInterval(function () {
+                count--;
+                $timerEl.text(count < 10 ? '0' + count : count );
+
+                if (count == 0) {
+                    clearInterval(timerFx);
+                    $blurTargetList.toggleClass('qrlb-blurred');
+                    $timerRefreshBtn.toggleClass('qrlb-show-btn');
+                }
+            }, 1000);
+        }
+
+        startCountDown();
+        $timerRefreshBtn.on('click', function () {
+            $timerRefreshBtn.toggleClass('qrlb-show-btn');
+            $blurTargetList.toggleClass('qrlb-blurred');
+            startCountDown();
+        });
     }
     qrTimer();
 

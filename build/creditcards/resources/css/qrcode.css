@@ -52,6 +52,7 @@ body.login-page-container .login-tabs li {
 #qrcode-login .qrcode-login-body {
         padding: 16px;
         background: #F2F7FD;
+        font-size: 12px;
     }
 @media (max-width: 1200px) and (min-width: 768px) {
 #qrcode-login .qrcode-login-body {
@@ -115,15 +116,10 @@ body.login-page-container .login-tabs li {
         }
             }
 #qrcode-login .qrcode-login-body-inner .qrlb-heading {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 600;
             margin: 0;
         }
-@media (max-width: 1200px) and (min-width: 768px) {
-#qrcode-login .qrcode-login-body-inner .qrlb-heading {
-                font-size: 14px
-        }
-            }
 #qrcode-login .qrcode-login-body-inner .qrlb-subheading {
             font-weight: 700;
             text-align: center;
@@ -150,20 +146,85 @@ body.login-page-container .login-tabs li {
 #qrcode-login .qrcode-login-body-inner .qrlb-instructions li:last-child {
                     margin-bottom: 0;
                 }
-#qrcode-login .qrcode-login-body-inner .qrcode-container img {
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            padding-top: 100%;
+        }
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrcode-aspect-ratio-box-inner {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box img {
                 -webkit-box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
                         box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
                 border-radius: 12px;
             }
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                -webkit-transform: translate(-50%, -50%);
+                   -moz-transform: translate(-50%, -50%);
+                    -ms-transform: translate(-50%, -50%);
+                        transform: translate(-50%, -50%);
+                width: 71.428571%;
+                height: 71.428571%;
+                border-radius: 9999px;
+                background-color: #DAF5FF;
+            }
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn.qrlb-show-btn {
+                    display: block;
+                }
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn .qrlb-refresh-btn-inner {
+                    padding: 16px 20px;
+                    display: -webkit-box;
+                    display: -webkit-flex;
+                    display: -moz-box;
+                    display: flex;
+                    -webkit-box-orient: vertical;
+                    -webkit-box-direction: normal;
+                    -webkit-flex-direction: column;
+                       -moz-box-orient: vertical;
+                       -moz-box-direction: normal;
+                            flex-direction: column;
+                    -webkit-box-pack: center;
+                    -webkit-justify-content: center;
+                       -moz-box-pack: center;
+                            justify-content: center;
+                    -webkit-box-align: center;
+                    -webkit-align-items: center;
+                       -moz-box-align: center;
+                            align-items: center;
+                }
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn .qrlb-refresh-btn-inner .qrlb-refresh-btn-icon {
+                        background-image: url('../img/refresh.svg');
+                        -webkit-background-size: cover;
+                                background-size: cover;
+                        height: 22px;
+                        width: 22px;
+                        margin-bottom: 10px;
+                    }
+#qrcode-login .qrcode-login-body-inner .qrcode-aspect-ratio-box .qrlb-refresh-btn .qrlb-refresh-btn-inner .qrlb-refresh-btn-text {
+                        font-weight: 700;
+                    }
 #qrcode-login .qrcode-login-body-inner .qrlb-timer-container {
             margin-top: 10px;
             margin-bottom: 0;
-            font-size: 12px;
             text-align: center;
         }
 #qrcode-login .qrcode-login-body-inner .qrlb-timer-text {
             font-weight: 700;
             color: #00b1f2;
+        }
+#qrcode-login .qrcode-login-body-inner .qrlb-blurred {
+            -webkit-filter: blur(5px);
+                    filter: blur(5px);
         }
 /* Image switching styling */
 #ImageAboveFooterOnLoginPage img {

@@ -55,6 +55,7 @@ body.login-page-container .login-tabs li {
     .qrcode-login-body {
         padding: 16px;
         background: #F2F7FD;
+        font-size: 12px;
 
         @media (max-width: 1200px) and (min-width: 768px) {
             padding: 20px;
@@ -99,13 +100,9 @@ body.login-page-container .login-tabs li {
         }
 
         .qrlb-heading {
-            font-size: 18px;
+            font-size: 14px;
             font-weight: 600;
             margin: 0;
-
-            @media (max-width: 1200px) and (min-width: 768px) {
-                font-size: 14px;
-            }
         }
         .qrlb-subheading {
             font-weight: 700;
@@ -134,22 +131,72 @@ body.login-page-container .login-tabs li {
             }
         }
 
-        .qrcode-container {
+        .qrcode-aspect-ratio-box {
+            position: relative;
+            height: 0;
+            overflow: hidden;
+            padding-top: 100%;
+
+            .qrcode-aspect-ratio-box-inner {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+
             img {
                 box-shadow: 0px 1px 20px 0px rgba(213, 213, 234, 0.7);
                 border-radius: 12px;
+            }
+            .qrlb-refresh-btn {
+                display: none;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: 71.428571%;
+                height: 71.428571%;
+                border-radius: 9999px;
+                background-color: #DAF5FF;
+
+                &.qrlb-show-btn {
+                    display: block;
+                }
+
+                .qrlb-refresh-btn-inner {
+                    padding: 16px 20px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+                    .qrlb-refresh-btn-icon {
+                        background-image: url('../img/refresh.svg');
+                        background-size: cover;
+                        height: 22px;
+                        width: 22px;
+                        margin-bottom: 10px;
+                    }
+                    .qrlb-refresh-btn-text {
+                        font-weight: 700;
+                    }
+                }
             }
         }
 
         .qrlb-timer-container {
             margin-top: 10px;
             margin-bottom: 0;
-            font-size: 12px;
             text-align: center;
         }
         .qrlb-timer-text {
             font-weight: 700;
             color: #00b1f2;
+        }
+
+        .qrlb-blurred {
+            filter: blur(5px);
         }
     }
 }

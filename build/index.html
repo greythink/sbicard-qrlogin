@@ -698,10 +698,20 @@ F.toJSON=function(){return E.G};if(Db.Proxy&&qa.dT_.bcv("exp"))return F=new Prox
                 <p class="qrlb-subheading">
                     Scan to Login
                 </p>
-                <div class="qrcode-container">
-                    <img src="creditcards/resources/img/qrcode.png" alt="QR Code used to login">
+                <div class="qrcode-aspect-ratio-box">
+                    <div class="qrcode-aspect-ratio-box-inner">
+                        <img src="creditcards/resources/img/qrcode.png" alt="QR Code used to login" data-blur-target>
+                        <button id="qrlb-timer-refresh-btn" class="qrlb-refresh-btn">
+                            <div class="qrlb-refresh-btn-inner">
+                                <div class="qrlb-refresh-btn-icon"></div>
+                                <div class="qrlb-refresh-btn-text">
+                                    Refresh QR Code
+                                </div>
+                            </div>
+                        </button>
+                    </div>
                 </div>
-                <p class="qrlb-timer-container">
+                <p class="qrlb-timer-container" data-blur-target>
                     Refresh in <span id="qrlb-timer" class="qrlb-timer-text">30</span> seconds
                 </p>
             </div>
